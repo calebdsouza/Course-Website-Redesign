@@ -16,14 +16,11 @@ if(!isset($_SESSION['valid'])){
         <link rel="shortcut icon" href="img/tree.png">
         <!--Links-->
 		<link type="text/css" rel="stylesheet" href="CSS/basicIndex.css">
-        <link type="text/css" rel="stylesheet" href="CSS/feedbackBasic.css">
-    
+        <link type="text/css" rel="stylesheet" href="CSS/syllabusBasic.css">
         
-        <title>CSCB20 | Feedback</title>
+        <title>CSCB20 | Syllabus</title>
     </head>
     <body>
-        
-        
             <!-- Mobile Menu -->
             <div id = "mobileNav">
                 <h1>CSCB20</h1>
@@ -34,7 +31,7 @@ if(!isset($_SESSION['valid'])){
                     <div class = "bar3"></div>
                 </button>
             </div>
-            <div id = mobileNavDrop>
+            <div id = mobileNavDrop >
                 <input type="checkbox" id="toggleNav"/>
                 <ul>
                     <li>
@@ -50,7 +47,7 @@ if(!isset($_SESSION['valid'])){
                         <a href="syllabus.html">Syllabus</a>
                     </li>
                     <li>
-                        <a href="assignment.html" for="toggle">Assignment</a>
+                        <a href="assignment.html"  for="toggle">Assignment</a>
                     </li>
                     <li>
                         <a href="https://markus.utsc.utoronto.ca/cscb20w18" target="_blank">Markus</a>
@@ -77,7 +74,8 @@ if(!isset($_SESSION['valid'])){
                         <input class="search" type="text" placeholder="Search..">
                     </li>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.html"
+                           class="underLine">Home</a>
                     </li>
                     <li>
                         <a href="index.html#courseTeam">Course Team</a>
@@ -86,7 +84,7 @@ if(!isset($_SESSION['valid'])){
                         <a  href="syllabus.html">Syllabus</a>
                     </li>
                     <li>
-                        <a href="assignment.html" >Assignment</a>
+                        <a href="assignment.html">Assignment</a>
                     </li>
                     <li>
                         <a href="https://markus.utsc.utoronto.ca/cscb20w18"  target="_blank">Markus</a>
@@ -102,48 +100,39 @@ if(!isset($_SESSION['valid'])){
                     </li>
                 </ul>
             </div>
-            <div id = "siteWrapper">
-            <!-- Main Page Content -->
-            <div id = "contentWrapper">
-                <div id = "header" class="shadow inContentBox">
-                        <h1 >
-                        CSCB20: Introduction to Databases and Web Applications
-                        </h1>
-    
-                </div>
-                <!-- Feedback Form -->
-                <div id="feedback">
-                    <div id = "window" class = " shadow inContentBox">
-                        <div id = "windowHeader">
-                            <div id = "windowBtns">
-                                <div class = "windowRd circle"></div>
-                                <div class = "windowYl circle"></div>
-                                <div class = "windowGn circle"></div>
+            <div id="siteWrapper">
+            <div class = "shadow inContentBox">
+                    <h3>Grading Scheme</h3>
+                    <div class = "table">
+                        <div class = "thead">
+                            <div class = "row">
+                                <div class = "cell">Valuation</div>
+                                <div class = "cell">Weight</div>
+                                <div class = "cell">Due</div>
                             </div>
-                            <div id = "windowTitle">Anonymous Feedback</div>
                         </div>
-                        <div id = "windowContent" class="flex_wrapper">
-                            <!-- User Input -->
-                            <form>
-                                <label for="feedback_name">Name (optional)</label><br>
-                                <input type="text" id="feedback_name"><br>
-                                <label for="feedback_email">Email (optional)</label><br>
-                                <input type="text" id="feedback_email"><br><br>
-                                <label for="feedback_email">Comments</label>
-                                <textarea></textarea>
-                                <input id="submitBtn" type="submit">
-                            </form>
+                        <div class = "tbody">
+                            
+                            <!-- Practicals -->
+                            <div class = "row">
+                                <div class = "cell">Practicals</div>
+                                <div class = "cell">5%</div>
+                                <div class = "cell">Last day of class</div>
+                            </div>
+                            <!-- Final -->
+                            <div class = "row">
+                                <div class = "cell">Final Exam</div>
+                                <div class = "cell">40%</div>
+                                <div class = "cell">April 21st @ 2pm - 4pm (Rm: SY110)</div>
+                            </div>
                         </div>
+                        
                     </div>
-                </div>
             </div>
-            <!-- Footer -->    
             <div id = "footer">
                 <a href = "http://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
                 <a>Site Design by Caleb D'Souza &#38; Michael Sun</a>
             </div>
-        
-        </div>
         <!-- JavaScript -->
         <script type="text/javascript" src="JavaScript/func.js"></script>
     </body>

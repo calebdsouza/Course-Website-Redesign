@@ -1,20 +1,13 @@
 <?php
-
-// Initialize the session
-
+// Initialize the session and check if the user is logged in
 session_start();
-
 // If session variable is not set it will redirect to login page
-
 if(!isset($_SESSION['valid'])){
-
   header("location: login.html");
-
   exit;
-
 }
-
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -109,6 +102,9 @@ if(!isset($_SESSION['valid'])){
                     <li>
                         <a href="http://www.utsc.utoronto.ca/iits/computer-labs" target="_blank">UTSC Labs</a>
                     </li>
+                    <li>
+                        <a href="php/logoutSubmit.php"> LOGOUT </a>
+                    </li>
                 </ul>
             </div>
             <div id="siteWrapper">
@@ -116,6 +112,11 @@ if(!isset($_SESSION['valid'])){
             <div id = "contentWrapper">
                 <div id = "header" class="shadow inContentBox">
                     <h1 >
+                    <?php
+                        if (isset($_SESSION['user_name']) && !empty($_SESSION['user_name'])) {
+                            echo  $_SESSION['user_name'];
+                        }
+                    ?>
                     CSCB20: Introduction to Databases and Web Applications
                     </h1>
 

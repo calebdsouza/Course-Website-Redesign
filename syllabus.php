@@ -1,3 +1,13 @@
+<?php
+// Initialize the session and check if the user is logged in
+session_start();
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['valid'])){
+  header("location: login.html");
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
