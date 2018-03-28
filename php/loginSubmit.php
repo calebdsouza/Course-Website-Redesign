@@ -25,7 +25,7 @@
 	        $_SESSION['valid'] = true;
           $_SESSION['timeout'] = time();
           $_SESSION['login_user'] = $myusername;
-          header("Location: ../index.html");
+          header("Location: ../index.php");
 	    echo "SIGNED IN :)";
         }else {
           header("Location: login.html");
