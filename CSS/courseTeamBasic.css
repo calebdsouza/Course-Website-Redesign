@@ -1,0 +1,37 @@
+/* course Team */
+
+#courseTeam {
+    background: white;
+    margin: 2vh auto;
+    width: 80%;
+}
+
+#courseTeam .card {
+    background: #485667;
+    border-radius: 8px;
+    height: 250px;
+    margin: 4vh 0vw;
+    padding: 2vmin;
+    width: 200px;
+}
+
+.card img {
+    border-radius: 7px 7px 0 0;
+    height: 200px;
+    width: 200px;
+    margin: 0;
+}
+
+.teamInfo {
+    background: #002b5b;
+    height: 50px;
+    width: 200px;
+    margin: 0;
+     border-radius: 0 0 7px 7px;
+}
+
+.teamInfo p {
+    margin: 0;
+    color: aliceblue;
+    text-align: center;
+}

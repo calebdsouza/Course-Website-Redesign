@@ -1,0 +1,32 @@
+/* Syllabus */
+#syllabus {
+    margin: 6vh auto;
+    vertical-align: middle;
+}
+
+/* Accordion */
+.accordion {
+    margin: 0;
+}
+
+.accordion_header {
+    cursor: pointer;
+    display: inherit;
+    height: 100%;
+    padding: 1.5vh 4vw;
+}
+
+.accordion_header h4 {
+    margin: 0;
+}
+
+.accordion_header:hover { 
+    background: aliceblue;
+}
+
+.accordion_content {
+    display: none;
+    opacity: 0;
+    margin: 0;
+    padding: 0.5vh 2.5vw;
+}
