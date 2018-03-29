@@ -16,7 +16,7 @@ if(!isset($_SESSION['valid'])){
         <link rel="shortcut icon" href="img/tree.png">
         <!--Links-->
 		<link type="text/css" rel="stylesheet" href="CSS/basicIndex.css">
-        <link type="text/css" rel="stylesheet" href="CSS/syllabusBasic.css">
+        <link type="text/css" rel="stylesheet" href="CSS/marksBasic.css">
         
         <title>CSCB20 | Marks</title>
     </head>
