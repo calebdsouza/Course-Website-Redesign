@@ -66,6 +66,9 @@ if(!isset($_SESSION['valid'])){
                     <li>
                         <a href="http://www.utsc.utoronto.ca/iits/computer-labs" target="_blank">UTSC Labs</a>
                     </li>
+                    <li>
+                        <a href="php/logoutSubmit.php"> LOGOUT </a>
+                    </li>
                 </ul>
             </div>
             <!-- Side Bar Menu -->
@@ -83,6 +86,9 @@ if(!isset($_SESSION['valid'])){
                     </li>
                     <li>
                         <a href="#courseTeam">Course Team</a>
+                    </li>
+                    <li>
+                        <a href="marks.php">Course Marks</a>
                     </li>
                     <li>
                         <a href="syllabus.php">Syllabus</a>

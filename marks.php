@@ -18,7 +18,7 @@ if(!isset($_SESSION['valid'])){
 		<link type="text/css" rel="stylesheet" href="CSS/basicIndex.css">
         <link type="text/css" rel="stylesheet" href="CSS/syllabusBasic.css">
         
-        <title>CSCB20 | Syllabus</title>
+        <title>CSCB20 | Marks</title>
     </head>
     <body>
             <!-- Mobile Menu -->
@@ -101,8 +101,10 @@ if(!isset($_SESSION['valid'])){
                 </ul>
             </div>
             <div id="siteWrapper">
-            <div class = "shadow inContentBox">
-                    <h3>Grading Scheme</h3>
+            <!-- Main Page Content -->
+            <div id = "contentWrapper">
+                <div class = "shadow inContentBox">
+                    <h3>Course Marks</h3>
                     <div class = "table">
                         <div class = "thead">
                             <div class = "row">
@@ -132,6 +134,7 @@ if(!isset($_SESSION['valid'])){
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
             <div id = "footer">
                 <a href = "http://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
