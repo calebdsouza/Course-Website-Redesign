@@ -1,7 +1,7 @@
 <?php
    include("config.php");
    session_start();
-   define('TABLE', 'Login'); 
+   $table = "Login";
    if($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = mysqli_real_escape_string($db,$_POST['username']);
     $password = mysqli_real_escape_string($db,$_POST['password']); 
@@ -19,7 +19,8 @@
       $_SESSION['valid'] = true;
       $_SESSION['timeout'] = time();
       if ($row['Type'] == 'S') {
-        $sql = "SELECT FIRST, LAST FROM  ".TABLE." WHERE UTORid = '$username' and password = '$password'";
+        $table = "Student";
+        $sql = "SELECT FIRST, LAST FROM  ".TABLE." WHERE ID = ".$row["ID"];
         $result = mysqli_query($db,$sql); 
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         $_SESSION['user_name'] = $row["First"]." ".$row["LAST"];

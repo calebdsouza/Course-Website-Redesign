@@ -51,11 +51,14 @@
                             <input id="submitBtn" type="submit" value="Login">
                             <p>Don't have an account? <a>Sign up now!</a></p>
                         </form>
+                        <div class = "homeMenuButton">
+                            <img src = "img/uoft.svg"/>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id = "footer">
+        <div id = "loginFooter">
                     <a href = "http://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
                     <a>Site Design by Caleb D'Souza &#38; Michael Sun</a>
                 </div>

@@ -2,7 +2,6 @@ form{
     display: block;
     position: relative;
     margin: 10vh auto;
-    vertical-align: middle;
     text-align: center;
     width: 100%;
 }
@@ -50,4 +49,26 @@ input[type=submit] {
 #submitBtn:hover {
     background-color: #49BCFF;
     border-color: #3379b7;
+}
+
+#loginFooter {
+    align-items: center;
+    background: #001129;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    content: ''; 
+    clear: both;
+}
+
+#loginFooter a {
+    color: lightcyan;
+    display: list-item;
+    list-style-type: none;
+    text-align: center;
+    text-decoration: none;
+}
+
+#loginFooter a:hover{
+    color: ghostwhite;
 }

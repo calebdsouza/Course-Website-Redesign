@@ -70,7 +70,7 @@ if(!isset($_SESSION['valid'])){
             <div id = "sideNav">
                 <ul>
                     <!-- Source of uoft svg logo file is form: https://www.utoronto.ca/ -->
-                    <li id = "homeMenuButton">
+                    <li class = "homeMenuButton">
                         <img src = "img/uoft.svg">
                     </li>
                     <li>

@@ -105,7 +105,7 @@ if(!isset($_SESSION['valid'])){
             <div id = "siteWrapper">
             <!-- Main Page Content -->
             <div id = "contentWrapper">
-                <div id = "header" class="shadow inContentBox">
+                <div class = "header" class="shadow inContentBox">
                         <h1 >
                         CSCB20: Introduction to Databases and Web Applications
                         </h1>

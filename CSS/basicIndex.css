@@ -90,7 +90,7 @@ body {
     margin-bottom: 5vh;
 }
 
-#homeMenuButton img {
+.homeMenuButton img {
     align-items: center;
     margin: auto;
     display: block;
@@ -433,7 +433,8 @@ body {
     background: #001129;
     bottom: 0;
     height: 50px;
-    width: 100%;
+    width: 82%;
+    margin-left: 18%;
     content: ''; 
     clear: both;
 }
