@@ -103,7 +103,7 @@ if(!isset($_SESSION['valid'])){
             <div id="siteWrapper">
             <!-- Main Page Content -->
             <div id = "contentWrapper">
-                <div class = "shadow inContentBox">
+                <div id="marks" class = "shadow inContentBox">
                     <h3>Course Marks</h3>
                     <div class = "table">
                         <div class = "thead">
@@ -122,7 +122,7 @@ if(!isset($_SESSION['valid'])){
                         <div class = "tbody">
                             <!-- Practicals -->
                             <div class = "row">
-                                <div class = "cell">Practicals</div>
+                                <div class = "cell"></div>
                                 <div class = "cell">5%</div>
                                 <div class = "cell">Last day of class</div>
                             </div>

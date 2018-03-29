@@ -1,0 +1,4 @@
+#marks > .table  {
+    display: div !important;
+    overflow-x: auto;
+}
