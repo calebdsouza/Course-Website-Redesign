@@ -3,7 +3,7 @@
 session_start();
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['valid'])){
-  header("location: login.html");
+  header("location: login.php");
   exit;
 }
 ?>

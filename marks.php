@@ -3,7 +3,7 @@
 session_start();
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['valid'])){
-  header("location: login.html");
+  header("location: login.php");
   exit;
 }
 ?>
@@ -106,13 +106,18 @@ if(!isset($_SESSION['valid'])){
                     <div class = "table">
                         <div class = "thead">
                             <div class = "row">
-                                <div class = "cell">Valuation</div>
-                                <div class = "cell">Weight</div>
-                                <div class = "cell">Due</div>
+                                <div class = "cell">Quiz 1</div>
+                                <div class = "cell">Assingment 1</div>
+                                <div class = "cell">Midterm</div>
+                                <div class = "cell">Quiz 2</div>
+                                <div class = "cell">Assingment 2</div>
+                                <div class = "cell">Quiz 3</div>
+                                <div class = "cell">Assingment 3</div>
+                                <div class = "cell">Practicals</div>
+                                <div class = "cell">Final</div>
                             </div>
                         </div>
                         <div class = "tbody">
-                            
                             <!-- Practicals -->
                             <div class = "row">
                                 <div class = "cell">Practicals</div>
@@ -126,7 +131,6 @@ if(!isset($_SESSION['valid'])){
                                 <div class = "cell">April 21st @ 2pm - 4pm (Rm: SY110)</div>
                             </div>
                         </div>
-                        
                     </div>
             </div>
             <div id = "footer">
