@@ -87,9 +87,15 @@ if(!isset($_SESSION['valid'])){
                     <li>
                         <a href="#courseTeam">Course Team</a>
                     </li>
-                    <li>
-                        <a href="marks.php">Course Marks</a>
-                    </li>
+                    <?php
+                        // Determine weather to display a set of marks for a Student or
+                        // all marks for an Instructor
+                         if ($_SESSION['accountType'] == "S") {
+                             echo '<li> <a href="marks.php">Course Marks</a> </li>';
+                         } else if ($_SESSION['accountType'] == "I") {
+                             echo '<li> <a href="marks.php">All Marks</a> </li>';
+                         }
+                    ?>
                     <li>
                         <a href="syllabus.php">Syllabus</a>
                     </li>
@@ -117,15 +123,14 @@ if(!isset($_SESSION['valid'])){
             <!-- Main Page Content -->
             <div id = "contentWrapper">
                 <div id = "header" class="shadow inContentBox">
-                    <h1 >
-                    <?php
-                        if (isset($_SESSION['user_name']) && !empty($_SESSION['user_name'])) {
-                            echo  $_SESSION['user_name'];
-                        }
-                    ?>
-                    CSCB20: Introduction to Databases and Web Applications
+                    <h1>
+                        CSCB20: Introduction to Databases and Web Applications<br>
+                        <?php
+                            if (isset($_SESSION['user_name']) && !empty($_SESSION['user_name'])) {
+                                echo  "Welcome ".$_SESSION['user_name']."!";
+                            }
+                        ?>
                     </h1>
-
                 </div>
 
                 <div class="announce windowYl new">
@@ -164,8 +169,7 @@ if(!isset($_SESSION['valid'])){
                             <br>
                             <br>
                             cscb20.prerequisites
-                            <br> > "This course may not be
-taken after - or concurrently with - any C- or D-level CSC course."
+                            <br> > "This course may not be taken after - or concurrently with - any C- or D-level CSC course."
                             <br>
                             <br>
                             cscb20.office_hours

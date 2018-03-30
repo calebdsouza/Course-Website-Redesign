@@ -67,7 +67,7 @@ if(!isset($_SESSION['valid'])){
             <div id = "sideNav">
                 <ul>
                     <!-- Source of uoft svg file is form: https://www.utoronto.ca/ -->
-                    <li id = "homeMenuButton">
+                    <li class = "homeMenuButton">
                         <img src = "img/uoft.svg">
                     </li>
                     <li>
@@ -108,6 +108,7 @@ if(!isset($_SESSION['valid'])){
                     <div class = "table">
                         <div class = "thead">
                             <div class = "row">
+                                <div class = "cell">UTORid</div>
                                 <div class = "cell">Quiz 1</div>
                                 <div class = "cell">Assingment 1</div>
                                 <div class = "cell">Midterm</div>
@@ -134,6 +135,56 @@ if(!isset($_SESSION['valid'])){
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div id = "window" class = "shadow inContentBox">
+                <div id = "windowHeader">
+                    <div id = "windowBtns">
+                        <div class = "windowRd circle"></div>
+                        <div class = "windowYl circle"></div>
+                        <div class = "windowGn circle"></div>
+                    </div>
+                    <div id = "windowTitle">Login Page</div>
+                </div>
+                <div id = "windowContent">
+                    <form id ="loginForm" action="php/remarkSubmit.php" method = "POST">
+                        <p id = "loginErrorMsg">
+                            <?php
+                                session_start();
+                                if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+                                    echo  $_SESSION['error'];
+                                }
+                            ?>
+                        </P>
+                        <label for="evaluatoin">Select Evaluatoin</label><br>
+                        <datalist type="text" placeholder = "evaluation" name="evaluation">
+                            <option value="Quiz 1">
+                            <option value="Assignment 1">
+                            <option value="Midterm">
+                            <option value="Quiz 2">
+                            <option value="Assignment 2">
+                            <option value="Quiz 3">
+                            <option value="Assignment 3">
+                            <option value="Practicals">
+                        </datalist>
+                        <label for="ta">Select T.A. to Remark</label><br>
+                        <datalist type="text" placeholder = "John Doe" name="ta">
+                            <?php
+                                include("config.php");
+                                $sql = "SELECT * FROM TA";
+                                $result = mysqli_query($db, $sql);
+                                if (mysqli_num_rows($result) > 0) {
+                                    while($row = mysql_fetch_assoc($result)){
+                                        echo "<option value = ".$row["First"]." ".$row["Last"].">\n";
+                                    }
+                                }
+                                $db->close();
+                            ?>
+                        </datalist>
+                        <label for="remarkReason">Reason For Remark:</label><br>
+                        <textarea type="text" placeholder = "Comments..." name="remarkReason"><br><br>
+                        <input id="submitBtn" type="submit" value="Request">
+                    </form>
                 </div>
             </div>
             <div id = "footer">

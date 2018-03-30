@@ -24,7 +24,7 @@
                     </h1>
                 </div>
                 
-                <!-- Basic Course Information -->
+                <!-- Login Module -->
                 <div id = "window" class = "shadow inContentBox">
                     <div id = "windowHeader">
                         <div id = "windowBtns">
@@ -44,12 +44,12 @@
                                     }
                                 ?>
                             </P>
-                            <label for="username">utorid</label><br>
+                            <label for="username">UTORid</label><br>
                             <input type="text" placeholder = "utorid" name="username"><br>
-                            <label for="password">password</label><br>
+                            <label for="password">Password</label><br>
                             <input type="password" placeholder = "password" name="password"><br><br>
                             <input id="submitBtn" type="submit" value="Login">
-                            <p>Don't have an account? <a>Sign up now!</a></p>
+                            <p id = "createAccBtn">Don't have an account? <a>Sign up now!</a></p>
                         </form>
                         <div class = "homeMenuButton">
                             <img src = "img/uoft.svg"/>
@@ -58,10 +58,10 @@
                 </div>
             </div>
         </div>
-        <div id = "loginFooter">
-                    <a href = "http://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
-                    <a>Site Design by Caleb D'Souza &#38; Michael Sun</a>
-                </div>
+            <div id = "loginFooter">
+                <a href = "http://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
+                <a>Site Design by Caleb D'Souza &#38; Michael Sun</a>
+            </div>
         </div>
         <!-- JavaScript -->
         <script type="text/javascript" src="JavaScript/func.js"></script>

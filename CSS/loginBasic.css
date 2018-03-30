@@ -6,10 +6,15 @@ form{
     width: 100%;
 }
 
-lable {
+#loginErrorMsg {
+    color: #FC605B;
+    text-align: left !important;
+}
+
+label {
     color: #174a79;
     margin: 0 3vw -20px 3vw;
-    text-align: center !important;
+    text-align: left !important;
 }
 
 input {
@@ -42,6 +47,7 @@ input[type=submit] {
     cursor: pointer;
     margin: 0;
     height: 29px;
+    text-align: left !important;
     transition: 0.4s ease-in;
     width: 90px;
 }
@@ -49,6 +55,10 @@ input[type=submit] {
 #submitBtn:hover {
     background-color: #49BCFF;
     border-color: #3379b7;
+}
+
+#createAccBtn {
+    text-align: left !important; 
 }
 
 #loginFooter {

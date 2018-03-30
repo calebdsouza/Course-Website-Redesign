@@ -19,14 +19,16 @@
     if($count == 1) {
       $_SESSION['valid'] = true;
       $_SESSION['timeout'] = time();
+      $_SESSION['accountType'] = $row['Type'];
 
       // Check the account type of the user which has logged in 
       if ($row['Type'] == 'S') { // Is a Student
         $table = "Student";
-        $sql = "SELECT FIRST, LAST FROM  ".$table." WHERE ID = ".$row["ID"];
+        $sql = "SELECT UTORid, FIRST, LAST FROM  ".$table." WHERE ID = ".$row["ID"];
         $result = mysqli_query($db, $sql); 
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        $_SESSION['user_name'] = $row["First"]." ".$row["LAST"];
+        $_SESSION['UTORid'] = $row["UTORid"];
+        $_SESSION['user_name'] = $row["FIRST"]." ".$row["LAST"];
       } else if ($row['Type'] == 'T') { // Is a Teaching Assitant
         $table = "T.A";
         $sql = "SELECT FIRST, LAST FROM  ".$table." WHERE ID = ".$row["ID"];

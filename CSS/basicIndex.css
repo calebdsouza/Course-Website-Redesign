@@ -85,7 +85,7 @@ body {
     border: none;
 }
 
-#homeMenuButton {
+.homeMenuButton {
     margin-top: 1.5vh;
     margin-bottom: 5vh;
 }

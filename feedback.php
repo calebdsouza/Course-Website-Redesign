@@ -106,10 +106,14 @@ if(!isset($_SESSION['valid'])){
             <!-- Main Page Content -->
             <div id = "contentWrapper">
                 <div class = "header" class="shadow inContentBox">
-                        <h1 >
+                    <h1 >
                         CSCB20: Introduction to Databases and Web Applications
-                        </h1>
-    
+                        <?php
+                            if (isset($_SESSION['user_name']) && !empty($_SESSION['user_name'])) {
+                                echo  "Welcome ".$_SESSION['user_name']."!";
+                            }
+                        ?>
+                    </h1>
                 </div>
                 <!-- Feedback Form -->
                 <div id="feedback">
@@ -124,13 +128,39 @@ if(!isset($_SESSION['valid'])){
                         </div>
                         <div id = "windowContent" class="flex_wrapper">
                             <!-- User Input -->
-                            <form>
-                                <label for="feedback_name">Name (optional)</label><br>
-                                <input type="text" id="feedback_name"><br>
-                                <label for="feedback_email">Email (optional)</label><br>
-                                <input type="text" id="feedback_email"><br><br>
-                                <label for="feedback_email">Comments</label>
-                                <textarea></textarea>
+                            <form action="php/feedbackSubmit.php" method = "POST">
+                                <label for = "feedback_instructor">
+                                    For Instructor:
+                                </label>
+                                <select name = "feedback_instructor">
+                                    <?php
+                                        include("config.php");
+                                        $sql = "SELECT * FROM Instructors";
+                                        $result = mysqli_query($db, $sql);
+                                        if (mysqli_num_rows($result) > 0) {
+                                            while($row = mysql_fetch_assoc($result)){
+                                                echo "<option value = ".$row["First"]." ".$row["Last"].">\n";
+                                            }
+                                        }
+                                        $db->close();
+                                    ?>
+                                </select>
+                                <label for = "feedback_q1">
+                                    What do you like about the instructor teaching?
+                                </label>
+                                <textarea name = "feedback_q1"></textarea>
+                                <label for = "feedback_q2">
+                                    What do you recommend the instructor to do to improve their teaching?
+                                </label>
+                                <textarea name = "feedback_q2"></textarea>
+                                <label for = "feedback_q3">
+                                    What do you like about the labs?
+                                </label>
+                                <textarea name = "feedback_q3"></textarea>
+                                <label for = "feedback_q4">
+                                    What do you recommend the lab instructors to do to improve their lab teaching?
+                                </label>
+                                <textarea name = "feedback_q4"></textarea>
                                 <input id="submitBtn" type="submit">
                             </form>
                         </div>
