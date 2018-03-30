@@ -24,6 +24,7 @@
         // Insert and check if given POST information was added to the db
         if ($db->query($sql) === TRUE) {
             $msg = "Feedback was successfully submitted";
+            header("Location: ../feedback.php");
         } else { // Send SQL error message
             $msg = "Error: " . $sql . "<br>" . $db->error;
         }

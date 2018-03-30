@@ -21,6 +21,7 @@
         // Insert and check if given POST information was added to the db
         if ($db->query($sql) === TRUE) {
             $msg = "Remark was successfully submitted";
+            header("Location: ../marks.php");
         } else { // Send SQL error message
             $msg = "Error: " . $sql . "<br>" . $db->error;
         }
