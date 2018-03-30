@@ -12,16 +12,7 @@
         $q2= mysqli_real_escape_string($db, $_POST['feedback_q2']);
         $q3= mysqli_real_escape_string($db, $_POST['feedback_q3']);
         $q4= mysqli_real_escape_string($db, $_POST['feedback_q4']);
-        $instructor = $_POST['feedback_instructor'];
-
-        // Get the TA id who is required to do the remark
-        $table = "Instructor";
-        $ta_name = explode(" ", $instructor);
-        $sql = "SELECT ID FROM ".$table." WHERE First = ".$instructor[0].
-                " AND Last = ".$instructor[1];
-        $result = mysqli_query($db, $sql);
-        $row = mysqli_fetch_assoc($result);
-        $instructor_id = $row["ID"];
+        $instructor_id = $_POST['feedback_instructor'];
 
         // Create sql insert statment
         $table = "Feedback";
