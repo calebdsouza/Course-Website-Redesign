@@ -24,7 +24,7 @@
         $table = "Remarks";
         $sql = "INSERT INTO ".$table.
                 " (UTORid, Evaluation, Reason, TAid) VALUES ('".
-                $_SESSION['UTORid']."', '".$evaluation."', ".$remarkReason.
+                $_SESSION['UTORid']."', '".$evaluation."', '".$remarkReason.
                 "', '".$ta_id."')";
 
         // Insert and check if given POST information was added to the db
