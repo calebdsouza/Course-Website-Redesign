@@ -142,6 +142,8 @@ if(!isset($_SESSION['valid'])){
                                                 echo "<option value = ".$row["First"]." ".$row["Last"].">\n";
                                             }
                                         }
+                                        // Free result set
+                                        mysqli_free_result($result);
                                         $db->close();
                                     ?>
                                 </select><br>

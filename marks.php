@@ -1,11 +1,11 @@
 <?php
-// Initialize the session and check if the user is logged in
-session_start();
-// If session variable is not set it will redirect to login page
-if(!isset($_SESSION['valid'])){
-  header("location: login.php");
-  exit;
-}
+    // Initialize the session and check if the user is logged in
+    session_start();
+    // If session variable is not set it will redirect to login page
+    if(!isset($_SESSION['valid'])){
+        header("location: login.php");
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -103,6 +103,17 @@ if(!isset($_SESSION['valid'])){
             <div id="siteWrapper">
                 <!-- Main Page Content -->
                 <div id = "contentWrapper">
+                    <!-- Header -->
+                    <div class = "header" class="shadow inContentBox">
+                        <h1>
+                            CSCB20: Introduction to Databases and Web Applications
+                            <?php
+                                if (isset($_SESSION['user_name']) && !empty($_SESSION['user_name'])) {
+                                    echo  "Welcome ".$_SESSION['user_name']."!";
+                                }
+                            ?>
+                        </h1>
+                    </div>
                     <!-- Display Student's Marks -->
                     <div id="marks" class = "shadow inContentBox">
                         <h3>Course Marks</h3>
@@ -135,7 +146,7 @@ if(!isset($_SESSION['valid'])){
                                         $sql = "SELECT * FROM Marks WHERE UTORid =".$_SESSION['UTORid'];
                                         $result = mysqli_query($db, $sql);
                                         if (mysqli_num_rows($result) > 0) {
-                                            while($row = mysql_fetch_assoc($result)){
+                                            while($row = mysqli_fetch_assoc($result)){
                                                 echo '
                                                 <div class = "cell">'.$row['UTORid'].'</div>\n
                                                 <div class = "cell">'.$row['q1'].'</div>\n
@@ -149,6 +160,8 @@ if(!isset($_SESSION['valid'])){
                                                 <div class = "cell">'.$row['final'].'</div>';
                                             }
                                         }
+                                        // Free result set
+                                        mysqli_free_result($result);
                                         $db->close();
                                     ?>
                                 </div>
@@ -195,10 +208,12 @@ if(!isset($_SESSION['valid'])){
                                         $sql = "SELECT * FROM TA";
                                         $result = mysqli_query($db, $sql);
                                         if (mysqli_num_rows($result) > 0) {
-                                            while($row = mysql_fetch_assoc($result)){
+                                            while($row = mysqli_fetch_assoc($result)){
                                                 echo "<option value = ".$row["First"]." ".$row["Last"].">\n";
                                             }
                                         }
+                                        // Free result set
+                                        mysqli_free_result($result);
                                         $db->close();
                                     ?>
                                 </select><br>
