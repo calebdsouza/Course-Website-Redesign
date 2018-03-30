@@ -148,15 +148,15 @@
                                         if (mysqli_num_rows($result) > 0) {
                                             while($row = mysqli_fetch_assoc($result)){
                                                 echo '
-                                                <div class = "cell">'.$row['UTORid'].'</div>\n
-                                                <div class = "cell">'.$row['q1'].'</div>\n
-                                                <div class = "cell">'.$row['a1'].'</div>\n
-                                                <div class = "cell">'.$row['midterm'].'</div>\n
-                                                <div class = "cell">'.$row['q2'].'</div>\n
-                                                <div class = "cell">'.$row['a2'].'</div>\n
-                                                <div class = "cell">'.$row['q3'].'</div>\n
-                                                <div class = "cell">'.$row['a3'].'</div>\n
-                                                <div class = "cell">'.$row['practicals'].'</div>\n
+                                                <div class = "cell">'.$row['UTORid'].'</div>
+                                                <div class = "cell">'.$row['q1'].'</div>
+                                                <div class = "cell">'.$row['a1'].'</div>
+                                                <div class = "cell">'.$row['midterm'].'</div>
+                                                <div class = "cell">'.$row['q2'].'</div>
+                                                <div class = "cell">'.$row['a2'].'</div>
+                                                <div class = "cell">'.$row['q3'].'</div>
+                                                <div class = "cell">'.$row['a3'].'</div>
+                                                <div class = "cell">'.$row['practicals'].'</div>
                                                 <div class = "cell">'.$row['final'].'</div>';
                                             }
                                         }
@@ -191,14 +191,14 @@
 
                                 <label for="evaluatoin">Select Evaluatoin</label><br>
                                 <select placeholder = "evaluation" name="evaluation">
-                                    <option value="Quiz 1">
-                                    <option value="Assignment 1">
-                                    <option value="Midterm">
-                                    <option value="Quiz 2">
-                                    <option value="Assignment 2">
-                                    <option value="Quiz 3">
-                                    <option value="Assignment 3">
-                                    <option value="Practicals">
+                                    <option value="Quiz 1">Quiz 1</option>
+                                    <option value="Assignment 1">Assignment 1</option>
+                                    <option value="Midterm">Midterm</option>
+                                    <option value="Quiz 2">Quiz 2</option>
+                                    <option value="Assignment 2">Assignment 2</option>
+                                    <option value="Quiz 3"> Quiz </option>
+                                    <option value="Assignment 3">Assignment 3</option>
+                                    <option value="Practicals">Practicals</option>
                                </select><br>
 
                                 <label for="ta">Select T.A. to Remark</label><br>
@@ -209,7 +209,9 @@
                                         $result = mysqli_query($db, $sql);
                                         if (mysqli_num_rows($result) > 0) {
                                             while($row = mysqli_fetch_assoc($result)){
-                                                echo "<option value = ".$row["First"]." ".$row["Last"].">\n";
+                                                echo "<option value = ".$row["First"]." "
+                                                     .$row["Last"].">".$row["First"]." "
+                                                     .$row["Last"]."</option>";
                                             }
                                         }
                                         // Free result set
@@ -220,7 +222,6 @@
 
                                 <label for="remarkReason">Reason For Remark:</label><br>
                                 <textarea type="text" placeholder = "Comments..." name="remarkReason">
-                                    Comments...
                                 </textarea>
                                 <br><br>
                                 <input id="submitBtn" type="submit" value="Request">

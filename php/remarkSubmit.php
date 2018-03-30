@@ -14,10 +14,9 @@
         // Get the TA id who is required to do the remark
         $table = "TA";
         $ta_name = explode(" ", $ta);
-        $sql = "SELECT ID, UTORid FROM ".$table." WHERE First = ".$ta_name[0].
-                " AND Last = ".$ta_name[1];
+        $sql = "SELECT ID, UTORid FROM ".$table." WHERE First = ".$ta_name[0]." AND Last = ".$ta_name[1];
         $result = mysqli_query($db, $sql);
-        $row = mysql_fetch_assoc($result);
+        $row = mysqli_fetch_assoc($result);
         $ta_id = $row["UTORid"];
 
         // Create sql insert statment
