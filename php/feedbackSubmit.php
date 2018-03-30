@@ -20,7 +20,7 @@
         $sql = "SELECT ID FROM ".$table." WHERE First = ".$instructor[0].
                 " AND Last = ".$instructor[1];
         $result = mysqli_query($db, $sql);
-        $row = mysql_fetch_assoc($result);
+        $row = mysqli_fetch_assoc($result);
         $instructor_id = $row["ID"];
 
         // Create sql insert statment

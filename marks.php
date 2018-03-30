@@ -221,8 +221,7 @@
                                 </select><br>
 
                                 <label for="remarkReason">Reason For Remark:</label><br>
-                                <textarea type="text" placeholder = "Comments..." name="remarkReason">
-                                </textarea>
+                                <textarea placeholder = "Comments..." name="remarkReason"></textarea>
                                 <br><br>
                                 <input id="submitBtn" type="submit" value="Request">
                             </form>

@@ -139,7 +139,7 @@ if(!isset($_SESSION['valid'])){
                                         $result = mysqli_query($db, $sql);
                                         if (mysqli_num_rows($result) > 0) {
                                             while($row = mysqli_fetch_assoc($result)){
-                                                echo "<option value = ".$row["First"]." ".$row["Last"].">\n";
+                                                echo "<option value = ".$row["First"]." ".$row["Last"].">".$row["First"]." ".$row["Last"]."</option>";
                                             }
                                         }
                                         // Free result set
