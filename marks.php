@@ -150,14 +150,14 @@ if(!isset($_SESSION['valid'])){
                     <form id ="loginForm" action="php/remarkSubmit.php" method = "POST">
                         <p id = "loginErrorMsg">
                             <?php
-                                session_start();
                                 if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
                                     echo  $_SESSION['error'];
                                 }
                             ?>
                         </P>
                         <label for="evaluatoin">Select Evaluatoin</label><br>
-                        <datalist type="text" placeholder = "evaluation" name="evaluation">
+                        <input list="evaluationList" placeholder = "evaluation" name="evaluation">
+                        <datalist id = "evaluationList">
                             <option value="Quiz 1">
                             <option value="Assignment 1">
                             <option value="Midterm">
@@ -168,7 +168,8 @@ if(!isset($_SESSION['valid'])){
                             <option value="Practicals">
                         </datalist>
                         <label for="ta">Select T.A. to Remark</label><br>
-                        <datalist type="text" placeholder = "John Doe" name="ta">
+                        <input list="taList" placeholder = "John Doe" name="ta">
+                        <datalist id = "taList">
                             <?php
                                 include("php/config.php");
                                 $sql = "SELECT * FROM TA";
