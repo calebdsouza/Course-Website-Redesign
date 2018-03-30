@@ -17,8 +17,7 @@
         // Get the TA id who is required to do the remark
         $table = "Instructor";
         $ta_name = explode(" ", $instructor);
-        $sql = "SELECT ID FROM ".$table." WHERE First = ".$instructor[0].
-                " AND Last = ".$instructor[1];
+        $sql = "SELECT ID FROM ".$table." WHERE ID = ".$instructor;
         $result = mysqli_query($db, $sql);
         $row = mysqli_fetch_assoc($result);
         $instructor_id = $row["ID"];
