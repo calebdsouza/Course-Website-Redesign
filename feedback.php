@@ -134,7 +134,7 @@ if(!isset($_SESSION['valid'])){
                                 </label>
                                 <select name = "feedback_instructor">
                                     <?php
-                                        include("config.php");
+                                        include("php/config.php");
                                         $sql = "SELECT * FROM Instructors";
                                         $result = mysqli_query($db, $sql);
                                         if (mysqli_num_rows($result) > 0) {

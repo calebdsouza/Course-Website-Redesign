@@ -170,7 +170,7 @@ if(!isset($_SESSION['valid'])){
                         <label for="ta">Select T.A. to Remark</label><br>
                         <datalist type="text" placeholder = "John Doe" name="ta">
                             <?php
-                                include("config.php");
+                                include("php/config.php");
                                 $sql = "SELECT * FROM TA";
                                 $result = mysqli_query($db, $sql);
                                 if (mysqli_num_rows($result) > 0) {
