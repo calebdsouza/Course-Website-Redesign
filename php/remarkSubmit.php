@@ -1,7 +1,7 @@
 <?php
     include("config.php");
     $msg = "";
-
+    session_start();
     // Check if the user entered all the information required for remark
     if(($_SERVER["REQUEST_METHOD"] == "POST") && isset($_POST["evaluation"])
         && isset($_POST["remarkReason"]) && isset($_POST["ta"])) {
@@ -9,7 +9,7 @@
         // Get infomation that was POSTed
         $evaluation = mysqli_real_escape_string($db, $_POST['evaluation']);
         $remarkReason = mysqli_real_escape_string($db, $_POST['remarkReason']);
-        $ta = mysqli_real_escape_string($db, $_POST['ta']);
+        $ta = $_POST['ta'];
 
         // Get the TA id who is required to do the remark
         $table = "TA";

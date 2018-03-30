@@ -12,7 +12,7 @@
         $q2= mysqli_real_escape_string($db, $_POST['feedback_q2']);
         $q3= mysqli_real_escape_string($db, $_POST['feedback_q3']);
         $q4= mysqli_real_escape_string($db, $_POST['feedback_q4']);
-        $instructor = mysqli_real_escape_string($db, $_POST['feedback_instructor']);
+        $instructor = $_POST['feedback_instructor'];
 
         // Get the TA id who is required to do the remark
         $table = "Instructor";
