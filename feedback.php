@@ -131,7 +131,7 @@ if(!isset($_SESSION['valid'])){
                             <form action="php/feedbackSubmit.php" method = "POST">
                                 <label for = "feedback_instructor">
                                     For Instructor:
-                                </label>
+                                </label><br>
                                 <select name = "feedback_instructor">
                                     <?php
                                         include("php/config.php");
@@ -144,23 +144,23 @@ if(!isset($_SESSION['valid'])){
                                         }
                                         $db->close();
                                     ?>
-                                </select>
+                                </select><br>
                                 <label for = "feedback_q1">
                                     What do you like about the instructor teaching?
-                                </label>
-                                <textarea name = "feedback_q1"></textarea>
+                                </label><br>
+                                <textarea name = "feedback_q1"></textarea><br>
                                 <label for = "feedback_q2">
                                     What do you recommend the instructor to do to improve their teaching?
-                                </label>
-                                <textarea name = "feedback_q2"></textarea>
+                                </label><br>
+                                <textarea name = "feedback_q2"></textarea><br>
                                 <label for = "feedback_q3">
                                     What do you like about the labs?
-                                </label>
-                                <textarea name = "feedback_q3"></textarea>
+                                </label><br>
+                                <textarea name = "feedback_q3"></textarea><br>
                                 <label for = "feedback_q4">
                                     What do you recommend the lab instructors to do to improve their lab teaching?
-                                </label>
-                                <textarea name = "feedback_q4"></textarea>
+                                </label><br>
+                                <textarea name = "feedback_q4"></textarea><br>
                                 <input id="submitBtn" type="submit">
                             </form>
                         </div>

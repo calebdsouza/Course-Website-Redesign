@@ -101,96 +101,122 @@ if(!isset($_SESSION['valid'])){
                 </ul>
             </div>
             <div id="siteWrapper">
-            <!-- Main Page Content -->
-            <div id = "contentWrapper">
-                <div id="marks" class = "shadow inContentBox">
-                    <h3>Course Marks</h3>
-                    <div class = "table">
-                        <div class = "thead">
-                            <div class = "row">
-                                <div class = "cell">UTORid</div>
-                                <div class = "cell">Quiz 1</div>
-                                <div class = "cell">Assingment 1</div>
-                                <div class = "cell">Midterm</div>
-                                <div class = "cell">Quiz 2</div>
-                                <div class = "cell">Assingment 2</div>
-                                <div class = "cell">Quiz 3</div>
-                                <div class = "cell">Assingment 3</div>
-                                <div class = "cell">Practicals</div>
-                                <div class = "cell">Final</div>
+                <!-- Main Page Content -->
+                <div id = "contentWrapper">
+                    <!-- Display Student's Marks -->
+                    <div id="marks" class = "shadow inContentBox">
+                        <h3>Course Marks</h3>
+                        <div class = "table">
+                            <div class = "thead">
+                                <div class = "row">
+                                    <div class = "cell">UTORid</div>
+                                    <div class = "cell">Quiz 1</div>
+                                    <div class = "cell">Assingment 1</div>
+                                    <div class = "cell">Midterm</div>
+                                    <div class = "cell">Quiz 2</div>
+                                    <div class = "cell">Assingment 2</div>
+                                    <div class = "cell">Quiz 3</div>
+                                    <div class = "cell">Assingment 3</div>
+                                    <div class = "cell">Practicals</div>
+                                    <div class = "cell">Final</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class = "tbody">
-                            <!-- Practicals -->
-                            <div class = "row">
-                                <div class = "cell"></div>
-                                <div class = "cell">5%</div>
-                                <div class = "cell">Last day of class</div>
-                            </div>
-                            <!-- Final -->
-                            <div class = "row">
-                                <div class = "cell">Final Exam</div>
-                                <div class = "cell">40%</div>
-                                <div class = "cell">April 21st @ 2pm - 4pm (Rm: SY110)</div>
+                            <div class = "tbody">
+                                <!-- Practicals 
+                                <div class = "row">
+                                    <div class = "cell"></div>
+                                    <div class = "cell">5%</div>
+                                    <div class = "cell">Last day of class</div>
+                                </div>
+                                <!-- Current User's Marks -->
+                                <div class = "row">
+                                    <?php
+                                        include("php/config.php");
+                                        $sql = "SELECT * FROM Marks WHERE UTORid =".$_SESSION['UTORid'];
+                                        $result = mysqli_query($db, $sql);
+                                        if (mysqli_num_rows($result) > 0) {
+                                            while($row = mysql_fetch_assoc($result)){
+                                                echo '
+                                                <div class = "cell">'.$row['UTORid'].'</div>\n
+                                                <div class = "cell">'.$row['q1'].'</div>\n
+                                                <div class = "cell">'.$row['a1'].'</div>\n
+                                                <div class = "cell">'.$row['midterm'].'</div>\n
+                                                <div class = "cell">'.$row['q2'].'</div>\n
+                                                <div class = "cell">'.$row['a2'].'</div>\n
+                                                <div class = "cell">'.$row['q3'].'</div>\n
+                                                <div class = "cell">'.$row['a3'].'</div>\n
+                                                <div class = "cell">'.$row['practicals'].'</div>\n
+                                                <div class = "cell">'.$row['final'].'</div>';
+                                            }
+                                        }
+                                        $db->close();
+                                    ?>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div id = "window" class = "shadow inContentBox">
-                <div id = "windowHeader">
-                    <div id = "windowBtns">
-                        <div class = "windowRd circle"></div>
-                        <div class = "windowYl circle"></div>
-                        <div class = "windowGn circle"></div>
+
+                    <!-- Display Remark Submission Form -->
+                    <div id = "window" class = "shadow inContentBox">
+                        <div id = "windowHeader">
+                            <div id = "windowBtns">
+                                <div class = "windowRd circle"></div>
+                                <div class = "windowYl circle"></div>
+                                <div class = "windowGn circle"></div>
+                            </div>
+                            <div id = "windowTitle">Remark Request Page</div>
+                        </div>
+                        <div id = "windowContent">
+                            <form id ="loginForm" action="php/remarkSubmit.php" method = "POST">
+                                <p id = "loginErrorMsg">
+                                    <?php
+                                        if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+                                            echo  $_SESSION['error'];
+                                        }
+                                    ?>
+                                </p>
+
+                                <label for="evaluatoin">Select Evaluatoin</label><br>
+                                <select placeholder = "evaluation" name="evaluation">
+                                    <option value="Quiz 1">
+                                    <option value="Assignment 1">
+                                    <option value="Midterm">
+                                    <option value="Quiz 2">
+                                    <option value="Assignment 2">
+                                    <option value="Quiz 3">
+                                    <option value="Assignment 3">
+                                    <option value="Practicals">
+                               </select><br>
+
+                                <label for="ta">Select T.A. to Remark</label><br>
+                                <select placeholder = "John Doe" name="ta">
+                                    <?php
+                                        include("php/config.php");
+                                        $sql = "SELECT * FROM TA";
+                                        $result = mysqli_query($db, $sql);
+                                        if (mysqli_num_rows($result) > 0) {
+                                            while($row = mysql_fetch_assoc($result)){
+                                                echo "<option value = ".$row["First"]." ".$row["Last"].">\n";
+                                            }
+                                        }
+                                        $db->close();
+                                    ?>
+                                </select><br>
+
+                                <label for="remarkReason">Reason For Remark:</label><br>
+                                <textarea type="text" placeholder = "Comments..." name="remarkReason">
+                                    Comments...
+                                </textarea>
+                                <br><br>
+                                <input id="submitBtn" type="submit" value="Request">
+                            </form>
+                        </div>
                     </div>
-                    <div id = "windowTitle">Login Page</div>
                 </div>
-                <div id = "windowContent">
-                    <form id ="loginForm" action="php/remarkSubmit.php" method = "POST">
-                        <p id = "loginErrorMsg">
-                            <?php
-                                if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
-                                    echo  $_SESSION['error'];
-                                }
-                            ?>
-                        </P>
-                        <label for="evaluatoin">Select Evaluatoin</label><br>
-                        <input list="evaluationList" placeholder = "evaluation" name="evaluation">
-                        <datalist id = "evaluationList">
-                            <option value="Quiz 1">
-                            <option value="Assignment 1">
-                            <option value="Midterm">
-                            <option value="Quiz 2">
-                            <option value="Assignment 2">
-                            <option value="Quiz 3">
-                            <option value="Assignment 3">
-                            <option value="Practicals">
-                        </datalist>
-                        <label for="ta">Select T.A. to Remark</label><br>
-                        <input list="taList" placeholder = "John Doe" name="ta">
-                        <datalist id = "taList">
-                            <?php
-                                include("php/config.php");
-                                $sql = "SELECT * FROM TA";
-                                $result = mysqli_query($db, $sql);
-                                if (mysqli_num_rows($result) > 0) {
-                                    while($row = mysql_fetch_assoc($result)){
-                                        echo "<option value = ".$row["First"]." ".$row["Last"].">\n";
-                                    }
-                                }
-                                $db->close();
-                            ?>
-                        </datalist>
-                        <label for="remarkReason">Reason For Remark:</label><br>
-                        <textarea type="text" placeholder = "Comments..." name="remarkReason"><br><br>
-                        <input id="submitBtn" type="submit" value="Request">
-                    </form>
+                <div id = "footer">
+                    <a href = "http://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
+                    <a>Site Design by Caleb D'Souza &#38; Michael Sun</a>
                 </div>
-            </div>
-            <div id = "footer">
-                <a href = "http://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
-                <a>Site Design by Caleb D'Souza &#38; Michael Sun</a>
             </div>
         <!-- JavaScript -->
         <script type="text/javascript" src="JavaScript/func.js"></script>
