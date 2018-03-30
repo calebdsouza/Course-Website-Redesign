@@ -105,8 +105,8 @@ if(!isset($_SESSION['valid'])){
             <div id = "siteWrapper">
             <!-- Main Page Content -->
             <div id = "contentWrapper">
-                <div class = "header" class="shadow inContentBox">
-                    <h1 >
+                <div id = "header" class="shadow inContentBox">
+                    <h1>
                         CSCB20: Introduction to Databases and Web Applications
                         <?php
                             if (isset($_SESSION['user_name']) && !empty($_SESSION['user_name'])) {
@@ -129,6 +129,13 @@ if(!isset($_SESSION['valid'])){
                         <div id = "windowContent" class="flex_wrapper">
                             <!-- User Input -->
                             <form action="php/feedbackSubmit.php" method = "POST">
+                                <p id = "loginErrorMsg">
+                                    <?php
+                                        if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+                                            echo  $_SESSION['error'];
+                                        }
+                                    ?>
+                                </p>
                                 <label for = "feedback_instructor">
                                     For Instructor:
                                 </label><br>

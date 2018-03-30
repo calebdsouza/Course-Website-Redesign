@@ -104,7 +104,7 @@
                 <!-- Main Page Content -->
                 <div id = "contentWrapper">
                     <!-- Header -->
-                    <div class = "header" class="shadow inContentBox">
+                    <div id = "header" class="shadow inContentBox">
                         <h1>
                             CSCB20: Introduction to Databases and Web Applications
                             <?php
