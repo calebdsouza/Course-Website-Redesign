@@ -209,8 +209,7 @@
                                         $result = mysqli_query($db, $sql);
                                         if (mysqli_num_rows($result) > 0) {
                                             while($row = mysqli_fetch_assoc($result)){
-                                                echo "<option value = ".$row["First"]." "
-                                                     .$row["Last"].">".$row["First"]." "
+                                                echo "<option value = ".$row["UTORid"].">".$row["First"]." "
                                                      .$row["Last"]."</option>";
                                             }
                                         }
