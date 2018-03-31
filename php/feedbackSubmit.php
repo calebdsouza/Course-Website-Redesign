@@ -19,7 +19,7 @@
         $table = "Feedback";
         $sql = "INSERT INTO ".$table.
                 " (instructorID, q1, q2, q3, q4) VALUES (".
-                $instructor_id.", '".$q1."', ".$q2.
+                $instructor_id.", '".$q1."', '".$q2.
                 "', '".$q3."', '".$q4."')";
 
         // Insert and check if given POST information was added to the db
