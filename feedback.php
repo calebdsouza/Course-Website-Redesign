@@ -183,36 +183,35 @@ if(!isset($_SESSION['valid'])){
                 } else if ($_SESSION['accountType'] == 'I') {
                     echo '
                     <div id = "feedback" class="shadow inContentBox">
-                    <h3>Syllabus</h3>
+                    <h3>Feedback Messages</h3>
                     <div class="accordion-wrapper">';
-                    echo '
-                        <div class="accordion">
-                            <div class="accordion_header">
-                                <h4>Week 1 | Topic: Course Overview &amp; The Internet</h4>
-                            </div>
-                            <div class="accordion_content">
-                                <p>';
-                                include("php/config.php");
-                                $sql = "SELECT * FROM Feedback WHERE instructorID ='".$_SESSION['UTORid']."'";
-                                $result = mysqli_query($db, $sql);
-                                if (mysqli_num_rows($result) > 0) {
-                                    while($row = mysqli_fetch_assoc($result)) {
-                                        echo '<h4>What do you like about the instructor teaching?</h4><br> 
-                                            <p>'.$row['q1'].'</p><br>
-                                            <h4>What do you recommend the instructor to do to improve their teaching?</h4><br>
-                                            <p>'.$row['q2'].'</p><br>
-                                            <h4>What do you like about the labs?</h4><br>
-                                            <p>'.$row['q3'].'</p><br>
-                                            <h4>What do you recommend the lab instructors to do to improve their lab teaching?</h4><br>
-                                            <p>'.$row['q4'].'</p><br>';
-                                    }
-                                } else {
-                                    echo '<p> No feebback submitted for you :(';
-                                }
-                                echo'
-                                </p>
-                            </div>
-                        </div>';
+                        include("php/config.php");
+                        $sql = "SELECT * FROM Feedback WHERE instructorID ='".$_SESSION['UTORid']."'";
+                        $result = mysqli_query($db, $sql);
+                        if (mysqli_num_rows($result) > 0) {
+                            while($row = mysqli_fetch_assoc($result)) {
+                                echo '
+                                <div class="accordion">
+                                    <div class="accordion_header">
+                                        <h4>Feedback</h4>
+                                        <a herf = ""> Delete </a>
+                                    </div>
+                                    <div class="accordion_content">
+                                        
+                                        <h4>What do you like about the instructor teaching?</h4><br> 
+                                        <p>'.$row['q1'].'</p><br>
+                                        <h4>What do you recommend the instructor to do to improve their teaching?</h4><br>
+                                        <p>'.$row['q2'].'</p><br>
+                                        <h4>What do you like about the labs?</h4><br>
+                                        <p>'.$row['q3'].'</p><br>
+                                        <h4>What do you recommend the lab instructors to do to improve their lab teaching?</h4><br>
+                                        <p>'.$row['q4'].'</p><br>
+                                    </div>
+                                </div>';
+                            }
+                        } else {
+                            echo '<p> No feebback submitted for you :(';
+                        }
                     echo'
                     </div>
                 </div>';
