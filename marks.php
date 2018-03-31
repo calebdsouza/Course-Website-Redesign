@@ -161,8 +161,8 @@
                                         mysqli_free_result($result);
                                         $db->close();
                                     echo '
-                                </div>
-                            </div>';
+                                </div>';
+
                             } else if ($_SESSION['accountType'] == 'I') {
                                 include("php/config.php");
                                 $sql = "SELECT * FROM Marks";
@@ -191,7 +191,9 @@
                                 mysqli_free_result($result);
                                 $db->close();
                             }
+
                             ?>
+                        </div>
                        </div>
                     </div>
                     <?php 
