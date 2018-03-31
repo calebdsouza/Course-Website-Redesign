@@ -12,7 +12,7 @@
         $q2= mysqli_real_escape_string($db, $_POST['feedback_q2']);
         $q3= mysqli_real_escape_string($db, $_POST['feedback_q3']);
         $q4= mysqli_real_escape_string($db, $_POST['feedback_q4']);
-        $instructor_id = mysqli_real_escape_string($_POST['feedback_instructor']);
+        $instructor_id = mysqli_real_escape_string($db, $_POST['feedback_instructor']);
 
         // Create sql insert statment
         $table = "Feedback";
