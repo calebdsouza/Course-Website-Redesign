@@ -165,7 +165,7 @@
                             </div>';
                             } else if ($_SESSION['accountType'] == 'I') {
                                 include("php/config.php");
-                                $sql = "SELECT * FROM Marks WHERE UTORid =".$_SESSION['UTORid'];
+                                $sql = "SELECT * FROM Marks";
                                 $result = mysqli_query($db, $sql);
 
                                 for ($counter = 0; $counter < mysqli_num_rows($result); $counter++) {
