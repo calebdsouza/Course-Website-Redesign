@@ -146,7 +146,7 @@ if(!isset($_SESSION['valid'])){
                                         $result = mysqli_query($db, $sql);
                                         if (mysqli_num_rows($result) > 0) {
                                             while($row = mysqli_fetch_assoc($result)){
-                                                echo "<option value = ".$row["ID"].">".$row["First"]." ".$row["Last"]."</option>";
+                                                echo "<option value = ".$row["id"].">".$row["First"]." ".$row["Last"]."</option>";
                                             }
                                         }
                                         // Free result set
