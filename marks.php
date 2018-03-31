@@ -134,8 +134,11 @@
                             </div>
                             <div class = "tbody">
                                 <!-- Current User's Marks -->
-                                <div class = "row">
-                                    <?php
+                                <?php
+                                    if ($_SESSION['accountType'] == 'S') {
+
+                                    echo '<div class = "row">';
+                                
                                         include("php/config.php");
                                         $sql = "SELECT * FROM Marks WHERE UTORid =".$_SESSION['UTORid'];
                                         $result = mysqli_query($db, $sql);
@@ -157,12 +160,16 @@
                                         // Free result set
                                         mysqli_free_result($result);
                                         $db->close();
-                                    ?>
+                                    echo '
                                 </div>
-                            </div>
-                        </div>
+                            </div>';
+                            }
+                            ?>
+                       </div>
                     </div>
-
+                    <?php 
+                    if ($_SESSION['accountType'] == 'S') {
+                        echo '
                     <!-- Display Remark Submission Form -->
                     <div id = "window" class = "shadow inContentBox">
                         <div id = "windowHeader">
@@ -175,12 +182,13 @@
                         </div>
                         <div id = "windowContent">
                             <form id ="loginForm" action="php/remarkSubmit.php" method = "POST">
-                                <p id = "loginErrorMsg">
-                                    <?php
+                                <p id = "loginErrorMsg">';
+                                    //<?php
                                         if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
                                             echo  $_SESSION['error'];
                                         }
-                                    ?>
+                                    //?
+                                    echo '
                                 </p>
 
                                 <label for="evaluatoin">Select Evaluatoin</label><br>
@@ -196,8 +204,8 @@
                                </select><br>
 
                                 <label for="ta">Select T.A. to Remark</label><br>
-                                <select placeholder = "John Doe" name="ta">
-                                    <?php
+                                <select placeholder = "John Doe" name="ta">';
+                                    //<?php
                                         include("php/config.php");
                                         $sql = "SELECT * FROM TA";
                                         $result = mysqli_query($db, $sql);
@@ -210,7 +218,8 @@
                                         // Free result set
                                         mysqli_free_result($result);
                                         $db->close();
-                                    ?>
+                                    //?
+                                    echo '
                                 </select><br>
 
                                 <label for="remarkReason">Reason For Remark:</label><br>
@@ -219,7 +228,9 @@
                                 <input id="submitBtn" type="submit" value="Request">
                             </form>
                         </div>
-                    </div>
+                    </div>';
+                    }
+                    ?>
                 </div>
                 <div id = "footer">
                     <a href = "http://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
