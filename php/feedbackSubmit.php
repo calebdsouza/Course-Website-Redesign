@@ -29,6 +29,7 @@
             header("Location: ../feedback.php");
         } else { // Send SQL error message
             $msg = "Error: " . $sql . "<br>" . $db->error;
+            echo "ERROR Somthing went wrong!";
         }
     } else { // Send usage error message
         $msg = "Error: No field can be left blank";
