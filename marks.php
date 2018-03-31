@@ -133,12 +133,6 @@
                                 </div>
                             </div>
                             <div class = "tbody">
-                                <!-- Practicals 
-                                <div class = "row">
-                                    <div class = "cell"></div>
-                                    <div class = "cell">5%</div>
-                                    <div class = "cell">Last day of class</div>
-                                </div>
                                 <!-- Current User's Marks -->
                                 <div class = "row">
                                     <?php
