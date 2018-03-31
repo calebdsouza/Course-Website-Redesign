@@ -38,16 +38,25 @@
                         <input class="search" type="text" placeholder="Search..">
                     </li>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="index.html#courseTeam">Course Team</a>
+                        <a href="#courseTeam">Course Team</a>
+                    </li>
+                    <?php
+                        // Determine weather to display a set of marks for a Student or
+                        // all marks for an Instructor
+                         if ($_SESSION['accountType'] == "S") {
+                             echo '<li> <a href="marks.php">Course Marks</a> </li>';
+                         } else if ($_SESSION['accountType'] == "I") {
+                             echo '<li> <a href="marks.php">All Marks</a> </li>';
+                         }
+                    ?>
+                    <li>
+                        <a href="syllabus.php">Syllabus</a>
                     </li>
                     <li>
-                        <a href="syllabus.html">Syllabus</a>
-                    </li>
-                    <li>
-                        <a href="assignment.html"  for="toggle">Assignment</a>
+                        <a href="assignment.php" for="toggle">Assignment</a>
                     </li>
                     <li>
                         <a href="https://markus.utsc.utoronto.ca/cscb20w18" target="_blank">Markus</a>
@@ -56,10 +65,28 @@
                         <a href="https://www.piazza.com/utoronto.ca/winter2018/cscb20h3" target="_blank">Piazza</a>
                     </li>
                     <li>
-                        <a href="feedback.html">Feedback</a>
+                        <a href="feedback.php">Feedback</a>
                     </li>
+                    <?php
+                        // Determine weather to display a set of remarks for a TA or
+                        // all marks for an Instructor
+                         if ($_SESSION['accountType'] == "T") {
+                             echo '<li> <a href="remarks.php">My Remarks</a> </li>';
+                         } else if ($_SESSION['accountType'] == "I") {
+                             echo '<li> <a href="remarks.php">All Remarks</a> </li>';
+                         }
+
+                        // Determine weather to display a enter marks fucntion
+                        // for a TA/Instructor
+                         if ($_SESSION['accountType'] == "T" || $_SESSION['accountType'] == "I") {
+                             echo '<li> <a href="enterMarks.php">Enter marks</a> </li>';
+                         }
+                    ?>
                     <li>
                         <a href="http://www.utsc.utoronto.ca/iits/computer-labs" target="_blank">UTSC Labs</a>
+                    </li>
+                    <li>
+                        <a href="php/logoutSubmit.php"> LOGOUT </a>
                     </li>
                 </ul>
             </div>
@@ -67,24 +94,32 @@
             <div id = "sideNav">
                 <ul>
                     <!-- Source of uoft svg file is form: https://www.utoronto.ca/ -->
-                    <li class = "homeMenuButton">
-                        <img src = "img/uoft.svg">
+                    <li id = "homeMenuButton">
+                        <img src = "img/uoft.svg"/>
                     </li>
                     <li>
                         <input class="search" type="text" placeholder="Search..">
                     </li>
                     <li>
-                        <a href="index.html"
-                           class="underLine">Home</a>
+                        <a href="index.php" class="underLine">Home</a>
                     </li>
                     <li>
-                        <a href="index.html#courseTeam">Course Team</a>
+                        <a href="#courseTeam">Course Team</a>
+                    </li>
+                    <?php
+                        // Determine weather to display a set of marks for a Student or
+                        // all marks for an Instructor
+                         if ($_SESSION['accountType'] == "S") {
+                             echo '<li> <a href="marks.php">Course Marks</a> </li>';
+                         } else if ($_SESSION['accountType'] == "I") {
+                             echo '<li> <a href="marks.php">All Marks</a> </li>';
+                         }
+                    ?>
+                    <li>
+                        <a href="syllabus.php">Syllabus</a>
                     </li>
                     <li>
-                        <a  href="syllabus.html">Syllabus</a>
-                    </li>
-                    <li>
-                        <a href="assignment.html">Assignment</a>
+                        <a href="assignment.php">Assignment</a>
                     </li>
                     <li>
                         <a href="https://markus.utsc.utoronto.ca/cscb20w18"  target="_blank">Markus</a>
@@ -93,10 +128,28 @@
                         <a href="https://www.piazza.com/utoronto.ca/winter2018/cscb20h3"  target="_blank">Piazza</a>
                     </li>
                     <li>
-                        <a href="feedback.html">Feedback</a>
+                        <a href="feedback.php">Feedback</a>
                     </li>
+                    <?php
+                        // Determine weather to display a set of remarks for a TA or
+                        // all marks for an Instructor
+                         if ($_SESSION['accountType'] == "T") {
+                             echo '<li> <a href="remarks.php">My Remarks</a> </li>';
+                         } else if ($_SESSION['accountType'] == "I") {
+                             echo '<li> <a href="remarks.php">All Remarks</a> </li>';
+                         }
+
+                        // Determine weather to display a enter marks fucntion
+                        // for a TA/Instructor
+                         if ($_SESSION['accountType'] == "T" || $_SESSION['accountType'] == "I") {
+                             echo '<li> <a href="enterMarks.php">Enter marks</a> </li>';
+                         }
+                    ?>
                     <li>
                         <a href="http://www.utsc.utoronto.ca/iits/computer-labs" target="_blank">UTSC Labs</a>
+                    </li>
+                    <li>
+                        <a href="php/logoutSubmit.php"> LOGOUT </a>
                     </li>
                 </ul>
             </div>
@@ -182,7 +235,20 @@
                                                 <div class = "cell">'.$row['final'].'</div>
                                             </div>';
                                         }
-
+                                        // Row of the avrage for each evaluation 
+                                        echo '
+                                            <div class = "row">
+                                                <div class = "cell">'.$row['UTORid'].'</div>
+                                                <div class = "cell">'.$row['q1'].'</div>
+                                                <div class = "cell">'.$row['a1'].'</div>
+                                                <div class = "cell">'.$row['midterm'].'</div>
+                                                <div class = "cell">'.$row['q2'].'</div>
+                                                <div class = "cell">'.$row['a2'].'</div>
+                                                <div class = "cell">'.$row['q3'].'</div>
+                                                <div class = "cell">'.$row['a3'].'</div>
+                                                <div class = "cell">'.$row['practicals'].'</div>
+                                                <div class = "cell">'.$row['final'].'</div>
+                                            </div>';
                                 // Free result set
                                 mysqli_free_result($result);
                                 $db->close();
