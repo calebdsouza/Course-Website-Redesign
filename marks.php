@@ -163,7 +163,7 @@
                                     echo '
                                 </div>
                             </div>';
-                            } else if ($SESSION['accountType'] == 'I') {
+                            } else if ($_SESSION['accountType'] == 'I') {
                                 include("php/config.php");
                                 $sql = "SELECT * FROM Marks WHERE UTORid =".$_SESSION['UTORid'];
                                 $result = mysqli_query($db, $sql);
@@ -186,7 +186,7 @@
                                         }
                                     echo '</div>';
                                 }
-                                
+
                                 // Free result set
                                 mysqli_free_result($result);
                                 $db->close();
