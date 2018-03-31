@@ -189,7 +189,6 @@ if(!isset($_SESSION['valid'])){
                                     }
                                 echo '
                             </p>
-
                             <label for="evaluatoin">Select Evaluatoin</label><br>
                             <select placeholder = "evaluation" name="evaluation">
                                 <option value="q1">Quiz 1</option>
@@ -234,8 +233,6 @@ if(!isset($_SESSION['valid'])){
             <a href = "http://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
             <a>Site Design by Caleb D'Souza &#38; Michael Sun</a>
         </div>
-    
-        
         <!-- JavaScript -->
         <script type="text/javascript" src="JavaScript/func.js"></script>
     </body>

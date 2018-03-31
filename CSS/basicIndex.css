@@ -272,7 +272,6 @@ body {
 #window {
     background: #485667;
     border-radius: 2% 2% 1.5% 1.5%;
-    min-height: 500px;
 }
 
 #windowHeader {

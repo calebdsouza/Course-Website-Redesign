@@ -8,7 +8,7 @@
 		<link type="text/css" rel="stylesheet" href="CSS/basicIndex.css">
         <link type="text/css" rel="stylesheet" href="CSS/loginBasic.css">
         
-        <title>CSCB20 | Login</title>
+        <title>CSCB20 | Sign Up</title>
     </head>
     <body>
 
@@ -32,7 +32,7 @@
                             <div class = "windowYl circle"></div>
                             <div class = "windowGn circle"></div>
                         </div>
-                        <div id = "windowTitle">Login Page</div>
+                        <div id = "windowTitle">Sign Up Page</div>
                     </div>
                     <div id = "windowContent">
                         <form id ="loginForm" action="php/loginSubmit.php" method = "POST">
@@ -44,12 +44,25 @@
                                     }
                                 ?>
                             </P>
-                            <label for="username">UTORid</label><br>
-                            <input type="text" placeholder = "utorid" name="username"><br>
+                            <label for="accountType">Account</label><br>
+                            <select>
+                                <option value = "S">Student</option>
+                                <option value = "T">Teaching Assistant</option>
+                                <option value = "I">Instructor</option>
+                            </select>
+                            <label for="first">First Name</label><br>
+                            <input type="text" placeholder = "John" name="first"><br>
+                            <label for="last">Last Name</label><br>
+                            <input type="text" placeholder = "Doe" name="last"><br>
+                            <label for="utorid">UTORid</label><br>
+                            <input type="text" placeholder = "doe1234" name="utorid"><br>
                             <label for="password">Password</label><br>
-                            <input type="password" placeholder = "password" name="password"><br><br>
+                            <input type="text" placeholder = "password" name="password"><br><br>
+                            <label for="email">Email</label><br>
+                            <input type="text" placeholder = "john.doe@mail.utoronto.ca" name="email"><br>
+                            <label for="code">Access Code To Create Account</label><br>
+                            <input type="text" placeholder = "student23" name="code"><br>
                             <input id="submitBtn" type="submit" value="Login">
-                            <p id = "createAccBtn">Don't have an account? <a href = "signUp.php">Sign up now!</a></p>
                         </form>
                         <div id = "homeMenuButton">
                             <img src = "img/uoft.svg"/>
