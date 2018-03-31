@@ -163,6 +163,33 @@
                                     echo '
                                 </div>
                             </div>';
+                            } else if ($SESSION['accountType'] == 'I') {
+                                include("php/config.php");
+                                $sql = "SELECT * FROM Marks WHERE UTORid =".$_SESSION['UTORid'];
+                                $result = mysqli_query($db, $sql);
+
+                                for ($counter = 0; $counter < mysqli_num_rows($result); $counter++) {
+                                    echo '<div class = "row">';
+
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo '
+                                            <div class = "cell">'.$row['UTORid'].'</div>
+                                            <div class = "cell">'.$row['q1'].'</div>
+                                            <div class = "cell">'.$row['a1'].'</div>
+                                            <div class = "cell">'.$row['midterm'].'</div>
+                                            <div class = "cell">'.$row['q2'].'</div>
+                                            <div class = "cell">'.$row['a2'].'</div>
+                                            <div class = "cell">'.$row['q3'].'</div>
+                                            <div class = "cell">'.$row['a3'].'</div>
+                                            <div class = "cell">'.$row['practicals'].'</div>
+                                            <div class = "cell">'.$row['final'].'</div>';
+                                        }
+                                    echo '</div>';
+                                }
+                                
+                                // Free result set
+                                mysqli_free_result($result);
+                                $db->close();
                             }
                             ?>
                        </div>
