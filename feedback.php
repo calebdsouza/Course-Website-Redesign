@@ -70,7 +70,7 @@ if(!isset($_SESSION['valid'])){
             <div id = "sideNav">
                 <ul>
                     <!-- Source of uoft svg file is form: https://www.utoronto.ca/ -->
-                    <li id = "homeMenuButton">
+                    <li class = "homeMenuButton">
                         <img src = "img/uoft.svg">
                     </li>
                     <li>
@@ -116,7 +116,7 @@ if(!isset($_SESSION['valid'])){
                     </h1>
                 </div>
                 <?php
-                    if ($_SESSION['aacountType'] == 'S') {
+                    if ($_SESSION['accountType'] == 'S') {
                         echo '
                 <!-- Feedback Form -->
                 <div id="feedback">
@@ -193,7 +193,7 @@ if(!isset($_SESSION['valid'])){
                             <div class="accordion_content">
                                 <p>';
                                 include("php/config.php");
-                                $sql = "SELECT * FROM Feedback WHERE instructorID =".$_SESSION['UTORid'];
+                                $sql = "SELECT * FROM Feedback WHERE instructorID ='".$_SESSION['UTORid']."'";
                                 $result = mysqli_query($db, $sql);
                                 if (mysqli_num_rows($result) > 0) {
                                     while($row = mysqli_fetch_assoc($result)) {
