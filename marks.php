@@ -271,7 +271,7 @@
                             </div>
                             <div id = "windowTitle">Remark Request Page</div>
                         </div>
-                        <div id = "windowContent">
+                        <div id = "windowContent" class="flex_wrapper">
                             <form id ="loginForm" action="php/remarkSubmit.php" method = "POST">
                                 <p id = "loginErrorMsg">';
                                     //<?php

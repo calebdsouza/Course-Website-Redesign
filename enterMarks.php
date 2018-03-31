@@ -181,7 +181,7 @@ if(!isset($_SESSION['valid'])){
                         </div>
                         <div id = "windowTitle">Remark Request Page</div>
                     </div>
-                    <div id = "windowContent">
+                    <div id = "windowContent" class="flex_wrapper">
                         <form id ="enterMarkForm" action="php/markSubmit.php" method = "POST">
                             <p id = "errorMsg">';
                                     if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
