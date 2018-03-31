@@ -1,7 +1,8 @@
 <?php
     include("config.php");
     $msg = "";
-
+    session_start();
+    
     // Check if the user entered all the information required for remark
     if(($_SERVER["REQUEST_METHOD"] == "POST") && isset($_POST["feedback_instructor"])
         && isset($_POST["feedback_q1"]) && isset($_POST["feedback_q2"])
@@ -26,7 +27,6 @@
         if ($db->query($sql) === TRUE) {
             $msg = "Feedback was successfully submitted";
             echo "SUBMITTED!";
-            header("Location: ../feedback.php");
         } else { // Send SQL error message
             $msg = "Error: " . $sql . "<br>" . $db->error;
             echo "ERROR Somthing went wrong!";
@@ -36,5 +36,6 @@
     }
 
     $_SESSION['error'] = $msg;
+    header("Location: ../feedback.php");
     
 ?>

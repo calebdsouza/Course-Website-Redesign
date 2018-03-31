@@ -2,6 +2,7 @@
     include("config.php");
     $msg = "";
     session_start();
+    
     // Check if the user entered all the information required for remark
     if(($_SERVER["REQUEST_METHOD"] == "POST") && isset($_POST["evaluation"])
         && isset($_POST["remarkReason"]) && isset($_POST["ta"])) {
@@ -21,7 +22,6 @@
         // Insert and check if given POST information was added to the db
         if ($db->query($sql) === TRUE) {
             $msg = "Remark was successfully submitted";
-            header("Location: ../marks.php");
         } else { // Send SQL error message
             $msg = "Error: " . $sql . "<br>" . $db->error;
         }
@@ -30,5 +30,5 @@
     }
 
     $_SESSION['error'] = $msg;
-    
+    header("Location: ../marks.php");
 ?>
