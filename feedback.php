@@ -212,7 +212,7 @@ if(!isset($_SESSION['valid'])){
                                         $db->close();
                                     //?
                                     echo '
-                                </select><br>
+                                </select><br><br>
                                 <label for = "feedback_q1">
                                     What do you like about the instructor teaching?
                                 </label><br>

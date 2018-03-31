@@ -292,7 +292,7 @@
                                     <option value="Quiz 3"> Quiz </option>
                                     <option value="Assignment 3">Assignment 3</option>
                                     <option value="Practicals">Practicals</option>
-                               </select><br>
+                               </select><br><br>
 
                                 <label for="ta">Select T.A. to Remark</label><br>
                                 <select placeholder = "John Doe" name="ta">';
@@ -311,7 +311,7 @@
                                         $db->close();
                                     //?
                                     echo '
-                                </select><br>
+                                </select><br><br>
 
                                 <label for="remarkReason">Reason For Remark:</label><br>
                                 <textarea placeholder = "Comments..." name="remarkReason"></textarea>

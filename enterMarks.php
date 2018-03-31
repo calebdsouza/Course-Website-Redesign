@@ -199,7 +199,7 @@ if(!isset($_SESSION['valid'])){
                                 <option value="q3"> Quiz </option>
                                 <option value="a3">Assignment 3</option>
                                 <option value="practicals">Practicals</option>
-                            </select><br>
+                            </select><br><br>
 
                             <label for="utorid">Select Student\'s UTORid</label><br>
                             <select placeholder = "doe455" name="utorid">';
@@ -217,7 +217,7 @@ if(!isset($_SESSION['valid'])){
                                     $db->close();
                                 //?
                                 echo '
-                            </select><br>
+                            </select><br><br>
 
                             <label for="grade">Student\'s Mark:</label><br>
                             <input type= "text" placeholder = "0" name="grade">
