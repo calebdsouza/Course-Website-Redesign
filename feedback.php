@@ -182,7 +182,9 @@ if(!isset($_SESSION['valid'])){
                 </div>';
                 } else if ($_SESSION['accountType'] == 'I') {
                     echo '
-                    <div id = "feedback" class="shadow inContentBox">
+                    <!-- Feedback Messages -->
+                    <div id = "feedback" >
+                    <div class="shadow inContentBox">
                     <h3>Feedback Messages</h3>
                     <div class="accordion-wrapper">';
                         include("php/config.php");
@@ -214,6 +216,7 @@ if(!isset($_SESSION['valid'])){
                         }
                     echo'
                     </div>
+                </div>
                 </div>';
                 }
                 ?>
