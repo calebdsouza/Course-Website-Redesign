@@ -62,7 +62,7 @@
                             <input type="text" placeholder = "john.doe@mail.utoronto.ca" name="email"><br>
                             <label for="code">Access Code To Create Account</label><br>
                             <input type="text" placeholder = "student23" name="code"><br>
-                            <input id="submitBtn" type="submit" value="Login">
+                            <input id="submitBtn" type="submit" value="Create">
                         </form>
                         <div id = "homeMenuButton">
                             <img src = "img/uoft.svg"/>
