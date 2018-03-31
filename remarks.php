@@ -122,7 +122,7 @@
                                     <div class = "cell">UTORid</div>
                                     <div class = "cell">Evaluation</div>
                                     <div class = "cell">Reason For Remark</div>
-                                    <div class = "cell">Completed</div>
+                                    <div class = "cell">When Finished</div>
                                 </div>
                             </div>
                             <div class = "tbody">
@@ -160,7 +160,7 @@
                                             <div class = "cell">'.$row['UTORid'].'</div>
                                             <div class = "cell">'.$row['Evaluation'].'</div>
                                             <div class = "cell">'.$row['Reason'].'</div>
-                                            <div class = "cell"><a href = "">Done</a></div>
+                                            <div class = "cell"><a href = "">Remove</a></div>
                                             </div>';
                                         }
                                 // Free result set
@@ -172,70 +172,6 @@
                         </div>
                        </div>
                     </div>
-                    <?php 
-                    if ($_SESSION['accountType'] == 'S') {
-                        echo '
-                    <!-- Display Remark Submission Form -->
-                    <div id = "window" class = "shadow inContentBox">
-                        <div id = "windowHeader">
-                            <div id = "windowBtns">
-                                <div class = "windowRd circle"></div>
-                                <div class = "windowYl circle"></div>
-                                <div class = "windowGn circle"></div>
-                            </div>
-                            <div id = "windowTitle">Remark Request Page</div>
-                        </div>
-                        <div id = "windowContent">
-                            <form id ="loginForm" action="php/remarkSubmit.php" method = "POST">
-                                <p id = "loginErrorMsg">';
-                                    //<?php
-                                        if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
-                                            echo  $_SESSION['error'];
-                                        }
-                                    //?
-                                    echo '
-                                </p>
-
-                                <label for="evaluatoin">Select Evaluatoin</label><br>
-                                <select placeholder = "evaluation" name="evaluation">
-                                    <option value="Quiz 1">Quiz 1</option>
-                                    <option value="Assignment 1">Assignment 1</option>
-                                    <option value="Midterm">Midterm</option>
-                                    <option value="Quiz 2">Quiz 2</option>
-                                    <option value="Assignment 2">Assignment 2</option>
-                                    <option value="Quiz 3"> Quiz </option>
-                                    <option value="Assignment 3">Assignment 3</option>
-                                    <option value="Practicals">Practicals</option>
-                               </select><br>
-
-                                <label for="ta">Select T.A. to Remark</label><br>
-                                <select placeholder = "John Doe" name="ta">';
-                                    //<?php
-                                        include("php/config.php");
-                                        $sql = "SELECT * FROM TA";
-                                        $result = mysqli_query($db, $sql);
-                                        if (mysqli_num_rows($result) > 0) {
-                                            while($row = mysqli_fetch_assoc($result)){
-                                                echo "<option value = ".$row["UTORid"].">".$row["First"]." "
-                                                     .$row["Last"]."</option>";
-                                            }
-                                        }
-                                        // Free result set
-                                        mysqli_free_result($result);
-                                        $db->close();
-                                    //?
-                                    echo '
-                                </select><br>
-
-                                <label for="remarkReason">Reason For Remark:</label><br>
-                                <textarea placeholder = "Comments..." name="remarkReason"></textarea>
-                                <br><br>
-                                <input id="submitBtn" type="submit" value="Request">
-                            </form>
-                        </div>
-                    </div>';
-                    }
-                    ?>
                 </div>
                 <div id = "footer">
                     <a href = "http://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>

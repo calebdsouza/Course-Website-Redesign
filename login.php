@@ -51,7 +51,7 @@
                             <input id="submitBtn" type="submit" value="Login">
                             <p id = "createAccBtn">Don't have an account? <a>Sign up now!</a></p>
                         </form>
-                        <div class = "homeMenuButton">
+                        <div id = "homeMenuButton">
                             <img src = "img/uoft.svg"/>
                         </div>
                     </div>

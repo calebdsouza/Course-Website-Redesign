@@ -42,6 +42,7 @@ body {
 #sideNav ul {
     margin: 0;
     padding: 0 1.5vw 0 1.5vw;
+    overflow-y: auto;
 }
 
 #sideNav ul li {
@@ -85,12 +86,12 @@ body {
     border: none;
 }
 
-.homeMenuButton {
+#homeMenuButton {
     margin-top: 1.5vh;
     margin-bottom: 5vh;
 }
 
-.homeMenuButton img {
+#homeMenuButton img {
     align-items: center;
     margin: auto;
     display: block;

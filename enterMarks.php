@@ -15,11 +15,11 @@ if(!isset($_SESSION['valid'])){
         <meta name="viewport" content="user-scalable = yes, width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="img/tree.png">
         <!--Links-->
-        <link type="text/css" rel="stylesheet" href="CSS/basicIndex.css">
-        <link type="text/css" rel="stylesheet" href="CSS/assignmentBasic.css">
+		<link type="text/css" rel="stylesheet" href="CSS/basicIndex.css">
+        <link type="text/css" rel="stylesheet" href="CSS/feedbackBasic.css">
+    
         
-        
-        <title>CSCB20 | Assignment</title>
+        <title>CSCB20 | Feedback</title>
     </head>
     <body>
         
@@ -69,8 +69,8 @@ if(!isset($_SESSION['valid'])){
             <!-- Side Bar Menu -->
             <div id = "sideNav">
                 <ul>
-                    <!-- Source of uoft svg logo file is form: https://www.utoronto.ca/ -->
-                    <li id = "homeMenuButton">
+                    <!-- Source of uoft svg file is form: https://www.utoronto.ca/ -->
+                    <li class = "homeMenuButton">
                         <img src = "img/uoft.svg">
                     </li>
                     <li>
@@ -106,33 +106,74 @@ if(!isset($_SESSION['valid'])){
             <!-- Main Page Content -->
             <div id = "contentWrapper">
                 <div id = "header" class="shadow inContentBox">
-                        <h1 >
+                    <h1>
                         CSCB20: Introduction to Databases and Web Applications
-                        </h1>
+                        <?php
+                            if (isset($_SESSION['user_name']) && !empty($_SESSION['user_name'])) {
+                                echo  "Welcome ".$_SESSION['user_name']."!";
+                            }
+                        ?>
+                    </h1>
                 </div>
-                
-                <div id="assignments" class="flex_wrapper">
-                    <!-- Card for assignment 1-->
-                    <div class="card shadow">
-                        <h3>Assingment 1</h3>
-                        <p>
-                            Due: 9th February @ 11:59pm (Markus)<br>
-                            <br>
-                            Description: Use MySQL and Rational Algebra to produce the reiqured quires and resulting queried tables.
-                        </p>
-                        <button class="btn"><a href = "Assignments/a1.pdf">VIEW</a></button>
-                    </div>
-                    <!-- Card for assignment 2-->
-                    <div class="card shadow">
-                        <h3>Assingment 2</h3>
-                        <p>
-                            Due: 12th March @ 11:59pm (Markus)<br>
-                            <br>
-                            Description: Use your knowledge of HTML, CSS, and Javascript to redesign the CSCB20 course website.
-                        </p>
-                        <button class="btn"><a href = "Assignments/a2.pdf">VIEW</a></button>
-                    </div>
-                </div>
+                <?php 
+                        echo '
+                    <!-- Display Remark Submission Form -->
+                    <div id = "window" class = "shadow inContentBox">
+                        <div id = "windowHeader">
+                            <div id = "windowBtns">
+                                <div class = "windowRd circle"></div>
+                                <div class = "windowYl circle"></div>
+                                <div class = "windowGn circle"></div>
+                            </div>
+                            <div id = "windowTitle">Remark Request Page</div>
+                        </div>
+                        <div id = "windowContent">
+                            <form id ="enterMarkForm" action="php/markSubmit.php" method = "POST">
+                                <p id = "errorMsg">';
+                                        if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+                                            echo  $_SESSION['error'];
+                                        }
+                                    echo '
+                                </p>
+
+                                <label for="evaluatoin">Select Evaluatoin</label><br>
+                                <select placeholder = "evaluation" name="evaluation">
+                                    <option value="q1">Quiz 1</option>
+                                    <option value="a1">Assignment 1</option>
+                                    <option value="midterm">Midterm</option>
+                                    <option value="q2">Quiz 2</option>
+                                    <option value="a2">Assignment 2</option>
+                                    <option value="q3"> Quiz </option>
+                                    <option value="a3">Assignment 3</option>
+                                    <option value="practials">Practicals</option>
+                               </select><br>
+
+                                <label for="utorid">Select Student\'s UTORid</label><br>
+                                <select placeholder = "doe455" name="utorid">';
+                                    //<?php
+                                        include("php/config.php");
+                                        $sql = "SELECT * FROM Student";
+                                        $result = mysqli_query($db, $sql);
+                                        if (mysqli_num_rows($result) > 0) {
+                                            while($row = mysqli_fetch_assoc($result)){
+                                                echo "<option value = ".$row["UTORid"].">".$row["UTORid"]."</option>";
+                                            }
+                                        }
+                                        // Free result set
+                                        mysqli_free_result($result);
+                                        $db->close();
+                                    //?
+                                    echo '
+                                </select><br>
+
+                                <label for="grade">Student\'s Mark:</label><br>
+                                <input type= "text" placeholder = "0" name="grade">
+                                <br><br>
+                                <input id="submitBtn" type="submit" value="Enter Mark">
+                            </form>
+                        </div>
+                    </div>';
+                    ?>
             </div>
             <!-- Footer -->    
             <div id = "footer">
