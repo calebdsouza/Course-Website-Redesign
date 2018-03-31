@@ -145,7 +145,7 @@ if(!isset($_SESSION['valid'])){
                                     <option value="a2">Assignment 2</option>
                                     <option value="q3"> Quiz </option>
                                     <option value="a3">Assignment 3</option>
-                                    <option value="practials">Practicals</option>
+                                    <option value="practicals">Practicals</option>
                                </select><br>
 
                                 <label for="utorid">Select Student\'s UTORid</label><br>
