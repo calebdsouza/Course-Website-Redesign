@@ -218,6 +218,9 @@ if(!isset($_SESSION['valid'])){
                     </div>
                 </div>
                 </div>';
+                // Free result set
+                mysqli_free_result($result);
+                $db->close();
                 }
                 ?>
             </div>

@@ -111,6 +111,21 @@ if(!isset($_SESSION['valid'])){
                     <li>
                         <a href="feedback.php">Feedback</a>
                     </li>
+                    <?php
+                        // Determine weather to display a set of remarks for a TA or
+                        // all marks for an Instructor
+                         if ($_SESSION['accountType'] == "T") {
+                             echo '<li> <a href="remarks.php">My Remarks</a> </li>';
+                         } else if ($_SESSION['accountType'] == "I") {
+                             echo '<li> <a href="remarks.php">All Remarks</a> </li>';
+                         }
+
+                        // Determine weather to display a enter marks fucntion
+                        // for a TA/Instructor
+                         if ($_SESSION['accountType'] == "T" || $_SESSION['accountType'] == "I") {
+                             echo '<li> <a href="enterMarks.php">Enter marks</a> </li>';
+                         }
+                    ?>
                     <li>
                         <a href="http://www.utsc.utoronto.ca/iits/computer-labs" target="_blank">UTSC Labs</a>
                     </li>
