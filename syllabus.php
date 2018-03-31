@@ -269,7 +269,7 @@ if(!isset($_SESSION['valid'])){
                         </div>
                     </div>
                 </div>
-        </div>
+            </div>
             <div id = "footer">
                     <a href = "http://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
                     <a>Site Design by Caleb D'Souza &#38; Michael Sun</a>

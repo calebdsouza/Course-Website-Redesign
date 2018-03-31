@@ -115,6 +115,9 @@ if(!isset($_SESSION['valid'])){
                         ?>
                     </h1>
                 </div>
+                <?php
+                    if ($_SESSION['aacountType'] == 'S') {
+                        echo '
                 <!-- Feedback Form -->
                 <div id="feedback">
                     <div id = "window" class = " shadow inContentBox">
@@ -129,30 +132,32 @@ if(!isset($_SESSION['valid'])){
                         <div id = "windowContent" class="flex_wrapper">
                             <!-- User Input -->
                             <form action="php/feedbackSubmit.php" method = "POST">
-                                <p id = "loginErrorMsg">
-                                    <?php
+                                <p id = "loginErrorMsg">';
+                                    //<?php
                                         if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
                                             echo  $_SESSION['error'];
                                         }
-                                    ?>
+                                    //?
+                                    echo '
                                 </p>
                                 <label for = "feedback_instructor">
                                     For Instructor:
                                 </label><br>
-                                <select name = "feedback_instructor">
-                                    <?php
+                                <select name = "feedback_instructor">';
+                                    //<?php
                                         include("php/config.php");
                                         $sql = "SELECT * FROM Instructors";
                                         $result = mysqli_query($db, $sql);
                                         if (mysqli_num_rows($result) > 0) {
                                             while($row = mysqli_fetch_assoc($result)){
-                                                echo "<option value = ".$row["id"].">".$row["First"]." ".$row["Last"]."</option>";
+                                                echo "<option value = ".$row["UTORid"].">".$row["First"]." ".$row["Last"]."</option>";
                                             }
                                         }
                                         // Free result set
                                         mysqli_free_result($result);
                                         $db->close();
-                                    ?>
+                                    //?
+                                    echo '
                                 </select><br>
                                 <label for = "feedback_q1">
                                     What do you like about the instructor teaching?
@@ -174,7 +179,45 @@ if(!isset($_SESSION['valid'])){
                             </form>
                         </div>
                     </div>
-                </div>
+                </div>';
+                } else if ($_SESSION['accountType'] == 'I') {
+                    echo '
+                    <div id = "feedback" class="shadow inContentBox">
+                    <h3>Syllabus</h3>
+                    <div class="accordion-wrapper">';
+                    echo '
+                        <div class="accordion">
+                            <div class="accordion_header">
+                                <h4>Week 1 | Topic: Course Overview &amp; The Internet</h4>
+                            </div>
+                            <div class="accordion_content">
+                                <p>';
+                                include("php/config.php");
+                                $sql = "SELECT * FROM Feedback WHERE instructorID =".$_SESSION['UTORid'];
+                                $result = mysqli_query($db, $sql);
+                                if (mysqli_num_rows($result) > 0) {
+                                    while($row = mysqli_fetch_assoc($result)) {
+                                        echo '<h4>What do you like about the instructor teaching?</h4><br> 
+                                            <p>'.$row['q1'].'</p><br>
+                                            <h4>What do you recommend the instructor to do to improve their teaching?</h4><br>
+                                            <p>'.$row['q2'].'</p><br>
+                                            <h4>What do you like about the labs?</h4><br>
+                                            <p>'.$row['q3'].'</p><br>
+                                            <h4>What do you recommend the lab instructors to do to improve their lab teaching?</h4><br>
+                                            <p>'.$row['q4'].'</p><br>';
+                                    }
+                                } else {
+                                    echo '<p> No feebback submitted for you :(';
+                                }
+                                echo'
+                                </p>
+                            </div>
+                        </div>';
+                    echo'
+                    </div>
+                </div>';
+                }
+                ?>
             </div>
             <!-- Footer -->    
             <div id = "footer">
