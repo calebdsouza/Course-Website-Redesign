@@ -44,12 +44,12 @@
                                     }
                                 ?>
                             </P>
-                            <label for="accountType">Account</label><br>
+                            <label for="accountType">Account Type</label><br>
                             <select>
                                 <option value = "S">Student</option>
                                 <option value = "T">Teaching Assistant</option>
                                 <option value = "I">Instructor</option>
-                            </select>
+                            </select><br>
                             <label for="first">First Name</label><br>
                             <input type="text" placeholder = "John" name="first"><br>
                             <label for="last">Last Name</label><br>
@@ -57,7 +57,7 @@
                             <label for="utorid">UTORid</label><br>
                             <input type="text" placeholder = "doe1234" name="utorid"><br>
                             <label for="password">Password</label><br>
-                            <input type="text" placeholder = "password" name="password"><br><br>
+                            <input type="text" placeholder = "password" name="password"><br>
                             <label for="email">Email</label><br>
                             <input type="text" placeholder = "john.doe@mail.utoronto.ca" name="email"><br>
                             <label for="code">Access Code To Create Account</label><br>
