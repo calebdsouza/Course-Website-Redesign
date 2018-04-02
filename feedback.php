@@ -242,7 +242,7 @@ if(!isset($_SESSION['valid'])){
                     <h3>Feedback Messages</h3>
                     <div class="accordion-wrapper">';
                         include("php/config.php");
-                        $sql = "SELECT * FROM Feedback WHERE instructorID ='".$_SESSION['UTORid']."'";
+                        $sql = "SELECT * FROM Feedback WHERE instructorID = ".$_SESSION["instructorID"];
                         $result = mysqli_query($db, $sql);
                         if (mysqli_num_rows($result) > 0) {
                             while($row = mysqli_fetch_assoc($result)) {
@@ -252,7 +252,7 @@ if(!isset($_SESSION['valid'])){
                                         <h4>Feedback</h4>
                                         <a herf = ""> Delete </a>
                                     </div>
-                                    <div class="accordion_content">
+                                    <div class="accordion_content display">
                                         
                                         <h4>What do you like about the instructor teaching?</h4><br> 
                                         <p>'.$row['q1'].'</p><br>
@@ -271,7 +271,9 @@ if(!isset($_SESSION['valid'])){
                     echo'
                     </div>
                 </div>
-                </div>';
+                </div>
+                <!-- JavaScript -->
+                <script type="text/javascript" src="JavaScript/func.js"></script>';
                 // Free result set
                 mysqli_free_result($result);
                 $db->close();
@@ -285,7 +287,5 @@ if(!isset($_SESSION['valid'])){
             </div>
         
         </div>
-        <!-- JavaScript -->
-        <script type="text/javascript" src="JavaScript/func.js"></script>
     </body>
 </html>

@@ -6,7 +6,7 @@
     $username = mysqli_real_escape_string($db,$_POST['username']);
     $password = mysqli_real_escape_string($db,$_POST['password']); 
 
-    $sql = "SELECT ID, Type FROM  ".$table." WHERE UTORid = '$username' and password = '$password'";      
+    $sql = "SELECT ID, UTORid, Type FROM  ".$table." WHERE UTORid = '$username' and password = '$password'";      
 	  $result = mysqli_query($db, $sql);
 
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -37,12 +37,14 @@
         $_SESSION['user_name'] = $row["First"]." ".$row["LAST"];
         $_SESSION['UTORid'] = $row["UTORid"];
       } else if ($row['Type'] == 'I') { // Is a Instructor
-        $table = "Instructor";
-        $sql = "SELECT FIRST, LAST FROM  ".$table." WHERE ID = ".$row["ID"];
-        $result = mysqli_query($db, $sql); 
+        $table = "Instructors";
+        $sql = "SELECT ID, First, Last FROM ".$table." WHERE ID = ".$row["ID"];
+        $result = mysqli_query($db, $sql);
+        echo "ID".$row["ID"]; 
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        $_SESSION['user_name'] = $row["First"]." ".$row["LAST"];
-        $_SESSION['UTORid'] = $row["UTORid"];
+        echo "RE: ".$row;
+        $_SESSION['user_name'] = $row["First"]." ".$row["Last"];
+        $_SESSION['instructorID'] = $row["ID"];
       }
 
       header("Location: ../index.php");
