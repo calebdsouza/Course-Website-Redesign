@@ -17,15 +17,13 @@ if(!isset($_SESSION['valid'])){
         <!--Links-->
 		<link type="text/css" rel="stylesheet" href="CSS/basicIndex.css">
         <link type="text/css" rel="stylesheet" href="CSS/courseTeamBasic.css">
-    
-        
+
+
         <title>CSCB20: Intro to Databases and Web Applications</title>
     </head>
     <body>
-
-
         <div id = "intorWrapper">
-        
+
             <!-- Mobile Menu -->
             <div id = "mobileNav">
                 <h1>CSCB20</h1>
@@ -173,12 +171,12 @@ if(!isset($_SESSION['valid'])){
                 </div>
 
                 <div class="announce windowYl new">
-                    <span class="exit">&times;</span> 
+                    <span class="exit">&times;</span>
                     <p>
                         Quiz 2 is moved to Monday March 12th! Will cover HTML, CSS and JavaScript.
                     </p>
                 </div>
-                
+
                 <!-- Basic Course Information -->
                 <div id = "window" class = "shadow inContentBox">
                     <div id = "windowHeader">
@@ -220,12 +218,12 @@ if(!isset($_SESSION['valid'])){
                         </code>
                     </div>
                 </div>
-                
+
                 <div class = "shadow inContentBox">
                     <h3>Course Description</h3>
                     <p>A practical introduction to databases and Web app development. Databases: terminology and applications; creating, querying and updating databases; the entity-relationship model for database design. Web documents and applications: static and interactive documents; Web servers and dynamic server-generated content; Web application development and interface with databases.</p>
                 </div>
-                
+
                 <div class = "shadow inContentBox">
                     <h3>Grading Scheme</h3>
                     <div class = "table">
@@ -292,7 +290,7 @@ if(!isset($_SESSION['valid'])){
                                 <div class = "cell">April 21st @ 2pm - 4pm (Rm: SY110)</div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class = "note">
                         There is a 3hrs final exam. The final exam is comprehensive, and you must obtain a mark of at least 40% to pass the course; otherwise, a grade of no higher than 47% will be assigned.
@@ -302,7 +300,7 @@ if(!isset($_SESSION['valid'])){
                 <div id = "announcements" class="shadow inContentBox">
                     <h3>Announcements</h3>
                     <div class = "announce windowGn">
-                        <span class="exit">&times;</span> 
+                        <span class="exit">&times;</span>
                         <h4>Reminders About Assingment 2</h4>
                         <h5>Posted: Wednesday, March 7, 2018 11:52:19 AM EST </h5>
                         <p>
@@ -311,8 +309,8 @@ if(!isset($_SESSION['valid'])){
                             4. You can use the content (such as pdf, instructor name, TA name, etc. etc.) from either Anna's website or our current website. <br>
                             5. Each user story can be 2-3 sentences. Concentrate on how the user will interact with your website. Also to think about here is the kinds of user (instructor or admin or student). Your user stories and mock diagram must be well considered and thorough. In your mock diagram, please do not use a screenshot of the actual web page. This is incorrect. The mock diagram happens first. At this point, you have a rough idea of how the webpage should work and how the user will interact with it. <br>
                             6. Here are some example of user stories, that I encourage you to read and get familiar with: https://www.mountaingoatsoftware.com/agile/user-stories <br>
-                            7. Make sure to test and run your webpage on Google Chrome. If your webpage depends on some images and other resources, make sure to have them placed appropriately in the directory that you submit to us. Please see the assignment handout for this. 
-                            
+                            7. Make sure to test and run your webpage on Google Chrome. If your webpage depends on some images and other resources, make sure to have them placed appropriately in the directory that you submit to us. Please see the assignment handout for this.
+
                         </p>
                     </div>
                     <div class = "announce windowYl">
@@ -327,7 +325,7 @@ if(!isset($_SESSION['valid'])){
                         </p>
                     </div>
                     <div class = "announce windowRd">
-                        <span class="exit">&times;</span> 
+                        <span class="exit">&times;</span>
                         <h4>Office Hours Cancelled!</h4>
                         <h5>Posted: Friday, March 2, 2018 1:29:53 AM EST </h5>
                         <p>
@@ -336,10 +334,10 @@ if(!isset($_SESSION['valid'])){
                         </p>
                     </div>
                 </div>
-                
+
                 <!-- Calendar -->
                 <iframe src="https://calendar.google.com/calendar/embed?src=2nu2edvea7ri3t5cgbcv21cibc%40group.calendar.google.com&amp;ctz=America%2FToronto" width="800" height="600" frameborder="0" scrolling="no" class="inContentBox"></iframe>
-                
+
                 <!-- Course Team -->
                 <div id="courseTeam" class="inContentBox shadow">
                     <h3>Course Team</h3>
