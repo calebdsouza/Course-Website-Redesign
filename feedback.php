@@ -1,4 +1,7 @@
 <?php
+// Initialize database
+include("config.php");
+include("php/delete.php")
 // Initialize the session and check if the user is logged in
 session_start();
 // If session variable is not set it will redirect to login page
@@ -17,13 +20,13 @@ if(!isset($_SESSION['valid'])){
         <!--Links-->
 		<link type="text/css" rel="stylesheet" href="CSS/basicIndex.css">
         <link type="text/css" rel="stylesheet" href="CSS/feedbackBasic.css">
-    
-        
+
+
         <title>CSCB20 | Feedback</title>
     </head>
     <body>
-        
-        
+
+
             <!-- Mobile Menu -->
             <div id = "mobileNav">
                 <h1>CSCB20</h1>
@@ -245,16 +248,18 @@ if(!isset($_SESSION['valid'])){
                         $sql = "SELECT * FROM Feedback WHERE instructorID = ".$_SESSION["instructorID"];
                         $result = mysqli_query($db, $sql);
                         if (mysqli_num_rows($result) > 0) {
+                            $feedbackIds = array();
+                            $i = 0;
                             while($row = mysqli_fetch_assoc($result)) {
+                                array_push($feedbackIds, $row["ID"]);
                                 echo '
                                 <div class="accordion">
                                     <div class="accordion_header">
                                         <h4>Feedback</h4>
-                                        <a herf = ""> Delete </a>
+                                        <form action="delete("Feedback", "ID", false, $feedbackIds[$i])"
                                     </div>
                                     <div class="accordion_content display">
-                                        
-                                        <h4>What do you like about the instructor teaching?</h4><br> 
+                                        <h4>What do you like about the instructor teaching?</h4><br>
                                         <p>'.$row['q1'].'</p><br>
                                         <h4>What do you recommend the instructor to do to improve their teaching?</h4><br>
                                         <p>'.$row['q2'].'</p><br>
@@ -264,9 +269,10 @@ if(!isset($_SESSION['valid'])){
                                         <p>'.$row['q4'].'</p><br>
                                     </div>
                                 </div>';
+                                $i++;
                             }
                         } else {
-                            echo '<p> No feebback submitted for you :(';
+                            echo '<p> No feedback submitted for you :(';
                         }
                     echo'
                     </div>
@@ -280,12 +286,12 @@ if(!isset($_SESSION['valid'])){
                 }
                 ?>
             </div>
-            <!-- Footer -->    
+            <!-- Footer -->
             <div id = "footer">
                 <a href = "http://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
                 <a>Site Design by Caleb D'Souza &#38; Michael Sun</a>
             </div>
-        
+
         </div>
     </body>
 </html>
