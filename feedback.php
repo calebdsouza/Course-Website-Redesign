@@ -1,7 +1,6 @@
 <?php
 // Initialize database
-include("config.php");
-include("php/delete.php")
+//include("php/delete.php");
 // Initialize the session and check if the user is logged in
 session_start();
 // If session variable is not set it will redirect to login page
@@ -249,14 +248,23 @@ if(!isset($_SESSION['valid'])){
                         $result = mysqli_query($db, $sql);
                         if (mysqli_num_rows($result) > 0) {
                             $feedbackIds = array();
-                            $i = 0;
+                            $i = 3;
                             while($row = mysqli_fetch_assoc($result)) {
                                 array_push($feedbackIds, $row["ID"]);
                                 echo '
                                 <div class="accordion">
                                     <div class="accordion_header">
                                         <h4>Feedback</h4>
-                                        <form action="delete("Feedback", "ID", false, $feedbackIds[$i])"
+                                        <form action="php/delete.php" method = "POST">
+                                            <input type = "hidden" name = "delTable" value = "Feedback">
+                                            <input type = "hidden" name = "delColName" value = "ID">
+                                            <input type = "hidden" name = "delRowId" value = "'.$i.'">
+                                            <input type = "hidden" name = "isDelRow" value = "false">
+                                            <input type = "hidden" name = "link" value = "../feedback.php">
+                                            <input type = "submit" value = "delete">
+                                        </form>';
+                                        $_SESSION['delTable'] = "Feedback";
+                                        echo '
                                     </div>
                                     <div class="accordion_content display">
                                         <h4>What do you like about the instructor teaching?</h4><br>
