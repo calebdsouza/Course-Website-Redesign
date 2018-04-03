@@ -179,9 +179,9 @@
                                         $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
                                         $numOfColums = mysqli_num_rows($resultOfColumnNames);
                                         if ($numOfColums > 0) {
-                                            $columnNames = mysqli_fetch_assoc($resultOfColumnNames);
+                                            $columnNames = mysqli_fetch_row($resultOfColumnNames);
                                         }
-
+                                        echo $columnNames;
                                         for ($x = 1; $x < $numOfColums; $x++) {
                                             echo '<div class = "cell">'.$row[$columnNames[$x]].'</div>';
                                         }
