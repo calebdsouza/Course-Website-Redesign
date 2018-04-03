@@ -175,8 +175,7 @@
                                 <div class = "row">
                                     <?php
                                         include("php/config.php");
-                                        $sqlForEvaluationNames = "SHOW COLUMNS
-                                        FROM Marks";
+                                        $sqlForEvaluationNames = "SELECT column_name FROM information_schema.columns WHERE table_name = 'Marks'";
                                         $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
                                         $numOfColums = mysqli_num_rows($resultOfColumnNames);
                                         if ($numOfColums > 0) {
