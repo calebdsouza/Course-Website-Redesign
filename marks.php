@@ -180,9 +180,9 @@
                                         $numOfColums = mysqli_num_rows($resultOfColumnNames);
                                         if ($numOfColums > 0) {
                                             $columnNames = mysqli_fetch_row($resultOfColumnNames);
-
-                                        for ($x = 0; $x < $numOfColums -1; $x++) {
-                                            echo '<div class = "cell">'.$columnNames[$x].'</div>';
+                                        
+                                        while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
+                                            echo '<div class = "cell">'.$columnNames[0].'</div>';
                                         }
                                     /*<div class = "cell">UTORid</div>
                                     <div class = "cell">Quiz 1</div>
@@ -207,8 +207,8 @@
                                         $result = mysqli_query($db, $sql);
                                         if (mysqli_num_rows($result) > 0) {
                                             while ($row = mysqli_fetch_assoc($result)) {
-                                                for ($x = 0; $x < $numOfColums; $x++) {
-                                                    echo '<div class = "cell">'.$row[$columnNames[$x]].'</div>';
+                                                while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
+                                                    echo '<div class = "cell">'.$row[$columnNames[0]].'</div>';
                                                 }
                                                /* echo '
                                                 <div class = "cell">'.$row['UTORid'].'</div>
@@ -234,8 +234,8 @@
                                 $result = mysqli_query($db, $sql);
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             echo '<div class = "row">';
-                                            for ($x = 0; $x < $numOfColums - 1; $x++) {
-                                                echo '<div class = "cell">'.$row[$columnNames[$x]].'</div>';
+                                            while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
+                                                echo '<div class = "cell">'.$row[$columnNames[0]].'</div>';
                                             }
                                             /*echo '
                                             <div class = "row">
@@ -302,8 +302,8 @@
                                 <label for="evaluatoin">Select Evaluatoin</label><br>
                                 <select placeholder = "evaluation" name="evaluation">
                                 ';
-                                for ($x = 0; $x < $numOfColums - 1; $x++) {
-                                    echo "<option value='".$row[$columnNames[$x]]."'>".$row[$columnNames[$x]]."</option>";
+                                while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
+                                    echo "<option value='".$row[$columnNames[0]]."'>".$row[$columnNames[0]]."</option>";
                                 }
                                 
                                /* echo '
