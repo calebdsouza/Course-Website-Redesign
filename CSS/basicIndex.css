@@ -120,7 +120,7 @@ body {
     height: 35px;
 }
 
-.loginBtn a{
+.loginBtn a {
     color: aliceblue !important;
     padding: 5px 25px;
     border: none;
@@ -172,8 +172,9 @@ body {
     border: none;
     cursor: pointer;
     display: inline-block;
+    float: right;
     margin-top: 15px;
-    margin-right: 5vw;
+    margin-right: 8vw;
     vertical-align: middle;
 }
 
