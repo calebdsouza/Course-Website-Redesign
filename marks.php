@@ -175,7 +175,7 @@
                                 <div class = "row">
                                     <?php
                                         include("php/config.php");
-                                        $sqlForEvaluationNames = "SELECT * FROM information_schema.columns WHERE table_name = 'Marks'";
+                                        $sqlForEvaluationNames = "SELECT column_name FROM cscb20w18_sunyuan8.columns WHERE table_name = 'Marks'";
                                         $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
                                         $numOfColums = mysqli_num_rows($resultOfColumnNames);
                                         if ($numOfColums > 0) {
@@ -233,6 +233,7 @@
                                 $sql = "SELECT * FROM Marks";
                                 $result = mysqli_query($db, $sql);
                                         while ($row = mysqli_fetch_assoc($result)) {
+                                            echo '<div class = "row">';
                                             for ($x = 0; $x < $numOfColums - 1; $x++) {
                                                 echo '<div class = "cell">'.$row[$columnNames[$x]].'</div>';
                                             }
@@ -249,6 +250,7 @@
                                                 <div class = "cell">'.$row['practicals'].'</div>
                                                 <div class = "cell">'.$row['final'].'</div>
                                             </div>';*/
+                                            echo '</div>';
                                         }
                                         // Row of the avrage for each evaluation 
                                         echo '
