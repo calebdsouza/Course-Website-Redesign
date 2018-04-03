@@ -35,7 +35,7 @@
                         <div id = "windowTitle">Sign Up Page</div>
                     </div>
                     <div id = "windowContent">
-                        <form id ="loginForm" action="php/loginSubmit.php" method = "POST">
+                        <form id ="loginForm" action="php/signUpSubmit.php" method = "POST">
                             <p id = "loginErrorMsg">
                                 <?php
                                     session_start();
@@ -45,11 +45,11 @@
                                 ?>
                             </P>
                             <label for="accountType">Account Type</label><br>
-                            <select>
+                            <select name="accountType">
                                 <option value = "S">Student</option>
                                 <option value = "T">Teaching Assistant</option>
                                 <option value = "I">Instructor</option>
-                            </select><br>
+                            </select><br><br>
                             <label for="first">First Name</label><br>
                             <input type="text" placeholder = "John" name="first"><br>
                             <label for="last">Last Name</label><br>
