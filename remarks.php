@@ -189,12 +189,23 @@
                                         $sql = "SELECT * FROM Remarks WHERE TAid =".$_SESSION['UTORid'];
                                         $result = mysqli_query($db, $sql);
                                         if (mysqli_num_rows($result) > 0) {
+                                            $j = 1;
                                             while($row = mysqli_fetch_assoc($result)){
                                                 echo '
                                                 <div class = "cell">'.$row['UTORid'].'</div>
                                                 <div class = "cell">'.$row['Evaluation'].'</div>
                                                 <div class = "cell">'.$row['Reason'].'</div>
-                                                <div class = "cell"><a href = "">Done</a></div>';
+                                                <div class = "cell">
+                                                    <form action = "php/delete.php" method = "POST">
+                                                        <input type = "hidden" name = "delTable" value = "Remarks">
+                                                        <input type = "hidden" name = "delColName" value = "ID">
+                                                        <input type = "hidden" name = "delRowId" value = "'.$j.'">
+                                                        <input type = "hidden" name = "isDelRow" value = "false">
+                                                        <input type = "hidden" name = "link" value = "../remarks.php">
+                                                        <input type = "submit" value = "remove">
+                                                    </form>
+                                                </div>';
+                                                $j = $j + 1;
                                             }
                                         }
                                         // Free result set
@@ -207,15 +218,26 @@
                                 include("php/config.php");
                                 $sql = "SELECT * FROM Remarks";
                                 $result = mysqli_query($db, $sql);
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            echo '
-                                            <div class = "row">
-                                            <div class = "cell">'.$row['UTORid'].'</div>
-                                            <div class = "cell">'.$row['Evaluation'].'</div>
-                                            <div class = "cell">'.$row['Reason'].'</div>
-                                            <div class = "cell"><a href = "php/deleteRemarks.php">Remove</a></div>
-                                            </div>';
-                                        }
+                                    $i = 1;
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo '
+                                        <div class = "row">
+                                        <div class = "cell">'.$row['UTORid'].'</div>
+                                        <div class = "cell">'.$row['Evaluation'].'</div>
+                                        <div class = "cell">'.$row['Reason'].'</div>
+                                        <div class = "cell">
+                                            <form action = "php/delete.php" method = "POST">
+                                                <input type = "hidden" name = "delTable" value = "Remarks">
+                                                <input type = "hidden" name = "delColName" value = "ID">
+                                                <input type = "hidden" name = "delRowId" value = "'.$i.'">
+                                                <input type = "hidden" name = "isDelRow" value = "false">
+                                                <input type = "hidden" name = "link" value = "../remarks.php">
+                                                <input type = "submit" value = "remove">
+                                            </form>
+                                        </div>
+                                        </div>';
+                                        $i = $i + 1;
+                                    }
                                 // Free result set
                                 mysqli_free_result($result);
                                 $db->close();
