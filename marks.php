@@ -306,6 +306,7 @@
                                 <label for="evaluatoin">Select Evaluatoin</label><br>
                                 <select placeholder = "evaluation" name="evaluation">
                                 ';
+                                $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
                                 $columnNames = mysqli_fetch_row($resultOfColumnNames);
                                 $columnNames = mysqli_fetch_row($resultOfColumnNames);
                                 while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
