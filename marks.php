@@ -207,6 +207,7 @@
                                         $result = mysqli_query($db, $sql);
                                         if (mysqli_num_rows($result) > 0) {
                                             while ($row = mysqli_fetch_assoc($result)) {
+                                                $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
                                                 while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
                                                     echo '<div class = "cell">'.$row[$columnNames[0]].'</div>';
                                                 }
@@ -234,6 +235,7 @@
                                 $result = mysqli_query($db, $sql);
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             echo '<div class = "row">';
+                                            $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
                                             while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
                                                 echo '<div class = "cell">'.$row[$columnNames[0]].'</div>';
                                             }
