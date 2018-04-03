@@ -175,14 +175,14 @@
                                 <div class = "row">
                                     <?php
                                         include("php/config.php");
-                                        $sqlForEvaluationNames = "SELECT column_name FROM information_schema.columns WHERE table_schema = 'cscb20w18_sunyuan8' AND table_name = 'Marks'";
+                                        $sqlForEvaluationNames = "SELECT * FROM information_schema.columns WHERE table_name = 'Marks'";
                                         $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
                                         $numOfColums = mysqli_num_rows($resultOfColumnNames);
                                         if ($numOfColums > 0) {
                                             $columnNames = mysqli_fetch_row($resultOfColumnNames);
 
                                         for ($x = 0; $x < $numOfColums -1; $x++) {
-                                            echo '<div class = "cell">'.$row['"'.$columnNames[$x].'"'].'</div>';
+                                            echo '<div class = "cell">'.$columnNames[$x].'</div>';
                                         }
                                     /*<div class = "cell">UTORid</div>
                                     <div class = "cell">Quiz 1</div>
