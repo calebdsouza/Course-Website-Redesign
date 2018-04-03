@@ -173,7 +173,19 @@
                         <div class = "table">
                             <div class = "thead">
                                 <div class = "row">
-                                    <div class = "cell">UTORid</div>
+                                    <?php
+                                        include("php/config.php");
+                                        $sqlForEvaluationNames = "SELECT column_name FROM information_schema.columns WHERE table_schema = 'cscb20w18_sunyuan8' AND table_name = 'Marks'";
+                                        $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
+                                        $numOfColums = mysqli_num_rows($resultOfColumnNames);
+                                        if ($numOfColums > 0) {
+                                            $columnNames = mysqli_fetch_assoc($resultOfColumnNames);
+                                        }
+
+                                        for ($x = 1; $x < $numOfColums; $x++) {
+                                            echo '<div class = "cell">'.$row[$columnNames[$x]].'</div>';
+                                        }
+                                    /*<div class = "cell">UTORid</div>
                                     <div class = "cell">Quiz 1</div>
                                     <div class = "cell">Assingment 1</div>
                                     <div class = "cell">Midterm</div>
@@ -182,19 +194,10 @@
                                     <div class = "cell">Quiz 3</div>
                                     <div class = "cell">Assingment 3</div>
                                     <div class = "cell">Practicals</div>
-                                    <div class = "cell">Final</div>
-                                </div>
+                                    <div class = "cell">Final</div>*/
+                                echo '</div>
                             </div>
-                            <div class = "tbody">
-                                <!-- Current User's Marks -->
-                                <?php
-                                    include("php/config.php");
-                                    $sqlForEvaluationNames = "SELECT column_name FROM information_schema.columns WHERE table_schema = 'cscb20w18_sunyuan8' AND table_name = 'Marks'";
-                                    $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
-                                    $numOfColums = mysqli_num_rows($resultOfColumnNames);
-                                    if ($numOfColums > 0) {
-                                        $columnNames = mysqli_fetch_assoc($resultOfColumnNames);
-                                    }
+                            <div class = "tbody">';
 
                                     if ($_SESSION['accountType'] == 'S') {
 
@@ -205,7 +208,7 @@
                                         $result = mysqli_query($db, $sql);
                                         if (mysqli_num_rows($result) > 0) {
                                             while ($row = mysqli_fetch_assoc($result)) {
-                                                for ($x = 0; $x < $numOfColums; $x++) {
+                                                for ($x = 1; $x < $numOfColums; $x++) {
                                                     echo '<div class = "cell">'.$row[$columnNames[$x]].'</div>';
                                                 }
                                                /* echo '
@@ -231,7 +234,7 @@
                                 $sql = "SELECT * FROM Marks";
                                 $result = mysqli_query($db, $sql);
                                         while ($row = mysqli_fetch_assoc($result)) {
-                                            for ($x = 0; $x < $numOfColums; $x++) {
+                                            for ($x = 1; $x < $numOfColums; $x++) {
                                                 echo '<div class = "cell">'.$row[$columnNames[$x]].'</div>';
                                             }
                                             /*echo '
@@ -298,7 +301,7 @@
                                 <label for="evaluatoin">Select Evaluatoin</label><br>
                                 <select placeholder = "evaluation" name="evaluation">
                                 ';
-                                for ($x = 0; $x < $numOfColums; $x++) {
+                                for ($x = 1; $x < $numOfColums; $x++) {
                                     echo "<option value='".$row[$columnNames[$x]]."'>".$row[$columnNames[$x]]."</option>";
                                 }
                                 
