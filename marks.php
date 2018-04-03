@@ -188,16 +188,27 @@
                             <div class = "tbody">
                                 <!-- Current User's Marks -->
                                 <?php
+                                    include("php/config.php");
+                                    $sqlForEvaluationNames = "SELECT column_name FROM information_schema.columns WHERE table_schema = 'cscb20w18_sunyuan8' AND table_name = 'Marks'";
+                                    $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
+                                    $numOfColums = mysqli_num_rows($resultOfColumnNames);
+                                    if ($numOfColums > 0) {
+                                        $columnNames = mysqli_fetch_assoc($resultOfColumnNames);
+                                    }
+
                                     if ($_SESSION['accountType'] == 'S') {
 
                                     echo '<div class = "row">';
                                 
-                                        include("php/config.php");
+                                        
                                         $sql = "SELECT * FROM Marks WHERE UTORid =".$_SESSION['UTORid'];
                                         $result = mysqli_query($db, $sql);
                                         if (mysqli_num_rows($result) > 0) {
-                                            while($row = mysqli_fetch_assoc($result)){
-                                                echo '
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                for ($x = 0; $x < $numOfColums; $x++) {
+                                                    echo '<div class = "cell">'.$row[$columnNames[$x]].'</div>';
+                                                }
+                                               /* echo '
                                                 <div class = "cell">'.$row['UTORid'].'</div>
                                                 <div class = "cell">'.$row['q1'].'</div>
                                                 <div class = "cell">'.$row['a1'].'</div>
@@ -207,7 +218,7 @@
                                                 <div class = "cell">'.$row['q3'].'</div>
                                                 <div class = "cell">'.$row['a3'].'</div>
                                                 <div class = "cell">'.$row['practicals'].'</div>
-                                                <div class = "cell">'.$row['final'].'</div>';
+                                                <div class = "cell">'.$row['final'].'</div>';*/
                                             }
                                         }
                                         // Free result set
@@ -217,11 +228,13 @@
                                 </div>';
 
                             } else if ($_SESSION['accountType'] == 'I') {
-                                include("php/config.php");
                                 $sql = "SELECT * FROM Marks";
                                 $result = mysqli_query($db, $sql);
                                         while ($row = mysqli_fetch_assoc($result)) {
-                                            echo '
+                                            for ($x = 0; $x < $numOfColums; $x++) {
+                                                echo '<div class = "cell">'.$row[$columnNames[$x]].'</div>';
+                                            }
+                                            /*echo '
                                             <div class = "row">
                                                 <div class = "cell">'.$row['UTORid'].'</div>
                                                 <div class = "cell">'.$row['q1'].'</div>
@@ -233,7 +246,7 @@
                                                 <div class = "cell">'.$row['a3'].'</div>
                                                 <div class = "cell">'.$row['practicals'].'</div>
                                                 <div class = "cell">'.$row['final'].'</div>
-                                            </div>';
+                                            </div>';*/
                                         }
                                         // Row of the avrage for each evaluation 
                                         echo '
@@ -284,6 +297,12 @@
 
                                 <label for="evaluatoin">Select Evaluatoin</label><br>
                                 <select placeholder = "evaluation" name="evaluation">
+                                ';
+                                for ($x = 0; $x < $numOfColums; $x++) {
+                                    echo "<option value='".$row[$columnNames[$x]]."'>".$row[$columnNames[$x]]."</option>";
+                                }
+                                
+                               /* echo '
                                     <option value="Quiz 1">Quiz 1</option>
                                     <option value="Assignment 1">Assignment 1</option>
                                     <option value="Midterm">Midterm</option>
@@ -291,25 +310,24 @@
                                     <option value="Assignment 2">Assignment 2</option>
                                     <option value="Quiz 3"> Quiz </option>
                                     <option value="Assignment 3">Assignment 3</option>
-                                    <option value="Practicals">Practicals</option>
+                                    <option value="Practicals">Practicals</option>*/
+                                echo '
                                </select><br><br>
 
                                 <label for="ta">Select T.A. to Remark</label><br>
                                 <select placeholder = "John Doe" name="ta">';
-                                    //<?php
-                                        include("php/config.php");
-                                        $sql = "SELECT * FROM TA";
-                                        $result = mysqli_query($db, $sql);
-                                        if (mysqli_num_rows($result) > 0) {
-                                            while($row = mysqli_fetch_assoc($result)){
-                                                echo "<option value = ".$row["UTORid"].">".$row["First"]." "
-                                                     .$row["Last"]."</option>";
-                                            }
+                                    include("php/config.php");
+                                    $sql = "SELECT * FROM TA";
+                                    $result = mysqli_query($db, $sql);
+                                    if (mysqli_num_rows($result) > 0) {
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            echo "<option value = ".$row["UTORid"].">".$row["First"]." "
+                                                    .$row["Last"]."</option>";
                                         }
-                                        // Free result set
-                                        mysqli_free_result($result);
-                                        $db->close();
-                                    //?
+                                    }
+                                    // Free result set
+                                    mysqli_free_result($result);
+                                    $db->close();
                                     echo '
                                 </select><br><br>
 

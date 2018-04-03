@@ -248,7 +248,6 @@ if(!isset($_SESSION['valid'])){
                         $result = mysqli_query($db, $sql);
                         if (mysqli_num_rows($result) > 0) {
                             $feedbackIds = array();
-                            $i = 3;
                             while($row = mysqli_fetch_assoc($result)) {
                                 array_push($feedbackIds, $row["ID"]);
                                 echo '
@@ -258,7 +257,7 @@ if(!isset($_SESSION['valid'])){
                                         <form action="php/delete.php" method = "POST">
                                             <input type = "hidden" name = "delTable" value = "Feedback">
                                             <input type = "hidden" name = "delColName" value = "ID">
-                                            <input type = "hidden" name = "delRowId" value = "'.$i.'">
+                                            <input type = "hidden" name = "delRowId" value = "'.$row["ID"].'">
                                             <input type = "hidden" name = "isDelRow" value = "false">
                                             <input type = "hidden" name = "link" value = "../feedback.php">
                                             <input type = "submit" value = "delete">
@@ -277,10 +276,9 @@ if(!isset($_SESSION['valid'])){
                                         <p>'.$row['q4'].'</p><br>
                                     </div>
                                 </div>';
-                                $i++;
                             }
                         } else {
-                            echo '<p> No feedback submitted for you :(';
+                            echo '<p> No feedback submitted for you :( </p>';
                         }
                     echo'
                     </div>
