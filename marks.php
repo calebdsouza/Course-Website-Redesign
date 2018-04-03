@@ -175,7 +175,8 @@
                                 <div class = "row">
                                     <?php
                                         include("php/config.php");
-                                        $sqlForEvaluationNames = "SELECT column_name FROM cscb20w18_sunyuan8.columns WHERE table_name = 'Marks'";
+                                        $sqlForEvaluationNames = "SHOW COLUMNS
+                                        FROM Marks";
                                         $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
                                         $numOfColums = mysqli_num_rows($resultOfColumnNames);
                                         if ($numOfColums > 0) {
