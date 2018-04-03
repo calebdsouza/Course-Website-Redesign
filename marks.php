@@ -208,6 +208,7 @@
                                         if (mysqli_num_rows($result) > 0) {
                                             while ($row = mysqli_fetch_assoc($result)) {
                                                 $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
+                                                $columnNames = mysqli_fetch_row($resultOfColumnNames);
                                                 while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
                                                     echo '<div class = "cell">'.$row[$columnNames[0]].'</div>';
                                                 }
@@ -236,6 +237,7 @@
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             echo '<div class = "row">';
                                             $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
+                                            $columnNames = mysqli_fetch_row($resultOfColumnNames);
                                             while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
                                                 echo '<div class = "cell">'.$row[$columnNames[0]].'</div>';
                                             }
@@ -304,6 +306,8 @@
                                 <label for="evaluatoin">Select Evaluatoin</label><br>
                                 <select placeholder = "evaluation" name="evaluation">
                                 ';
+                                $columnNames = mysqli_fetch_row($resultOfColumnNames);
+                                $columnNames = mysqli_fetch_row($resultOfColumnNames);
                                 while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
                                     echo "<option value='".$row[$columnNames[0]]."'>".$row[$columnNames[0]]."</option>";
                                 }
