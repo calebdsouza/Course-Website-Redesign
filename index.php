@@ -319,9 +319,9 @@ if(!isset($_SESSION['valid'])){
                                 echo '
                                 <div class = "announce windowGn">
                                     <span class="exit">&times;</span>
-                                    <h4>'.$row[title]'</h4>
+                                    <h4>'.$row[title].'</h4>
                                     <h5>Posted: '.$row[date].'</h5>
-                                    <p>'.$row[content]'</p>
+                                    <p>'.$row[content].'</p>
                                 </div>
                                 ';
                             }
