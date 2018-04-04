@@ -239,60 +239,8 @@
                                 // Free result set
                                 mysqli_free_result($result);
                                 $db->close();
-
-                                echo '
-                                <!-- Alter Evaluations Form -->
-                                <div id = "window" class = "shadow inContentBox">
-                                    <div id = "windowHeader">
-                                        <div id = "windowBtns">
-                                            <div class = "windowRd circle"></div>
-                                            <div class = "windowYl circle"></div>
-                                            <div class = "windowGn circle"></div>
-                                        </div>
-                                        <div id = "windowTitle">Remark Request Page</div>
-                                    </div>
-                                    <div id = "windowContent" class="flex_wrapper">
-                                        <form id ="loginForm" action="php/alterEvalSubmit.php" method = "POST">
-                                            <p id = "loginErrorMsg">';
-                                                //<?php
-                                                    if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
-                                                        echo  $_SESSION['error'];
-                                                    }
-                                                //?
-                                                echo '
-                                            </p>
-                                            <label for = "isDeletingEval">Selecte The Action You Wish To Preform</label>
-                                            <input type = "radio" name = "isDeletingEval">
-                                            <input type = "radio" name = "isAddingEval">
-
-                                            <label for="evaluatoin">Select Evaluatoin</label><br>
-                                            <select placeholder = "evaluation" name="evaluation">
-                                            ';
-                                            include("php/config.php");
-                                            $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
-                                            $columnNames = mysqli_fetch_row($resultOfColumnNames);
-                                            $columnNames = mysqli_fetch_row($resultOfColumnNames);
-                                            while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
-                                                echo "<option value='".$columnNames[0]."'>".$columnNames[0]."</option>";
-                                            }
-
-                                            echo '
-                                        </select><br><br>
-                                            ';
-                                              
-                                                // Free result set
-                                                mysqli_free_result($result);
-                                                $db->close();
-                                                echo '
-                                            <label for="newEvalName">Name Of New Evaluation:</label><br>
-                                            <intput type = "text" placeholder = "Assignment N" name="newEvalName">
-                                            <br><br>
-                                            <input id="submitBtn" type="submit" value="Alter">
-                                        </form>
-                                    </div>
-                                </div>';
                             }
-                        }
+                            }
                             ?>
                         </div>
                        </div>
@@ -358,6 +306,58 @@
                             </form>
                         </div>
                     </div>';
+                    } else if ($_SESSION["accountType"] == 'I') {
+                        echo '
+                        <!-- Alter Evaluations Form -->
+                        <div id = "window" class = "shadow inContentBox">
+                            <div id = "windowHeader">
+                                <div id = "windowBtns">
+                                    <div class = "windowRd circle"></div>
+                                    <div class = "windowYl circle"></div>
+                                    <div class = "windowGn circle"></div>
+                                </div>
+                                <div id = "windowTitle">Remark Request Page</div>
+                            </div>
+                            <div id = "windowContent" class="flex_wrapper">
+                                <form id ="loginForm" action="php/alterEvalSubmit.php" method = "POST">
+                                    <p id = "loginErrorMsg">';
+                                        //<?php
+                                            if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+                                                echo  $_SESSION['error'];
+                                            }
+                                        //?
+                                        echo '
+                                    </p>
+                                    <label>Selecte The Action You Wish To Preform</label><br>
+                                    <label for = "isDeletingEval">Remove Evaluation</label>
+                                    <input type = "radio" name = "isDeletingEval"><br>
+                                    <label for = "isAddingEval">Add Evaluation</label>
+                                    <input type = "radio" name = "isAddingEval"><br><br>
+
+                                    <label for="evaluatoin">Select Evaluatoin</label><br>
+                                    <select placeholder = "evaluation" name="evaluation">
+                                    ';
+                                    include("php/config.php");
+                                    $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
+                                    $columnNames = mysqli_fetch_row($resultOfColumnNames);
+                                    $columnNames = mysqli_fetch_row($resultOfColumnNames);
+                                    while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
+                                        echo "<option value='".$columnNames[0]."'>".$columnNames[0]."</option>";
+                                    }
+                                    // Free result set
+                                    mysqli_free_result($columnNames);
+                                    $db->close();
+
+                                    echo '
+                                    </select><br><br>
+                                    
+                                    <label for="newEvalName">Name Of New Evaluation:</label><br>
+                                    <intput type = "text" placeholder = "Assignment N" name="newEvalName">
+                                    <br><br>
+                                    <input id="submitBtn" type="submit" value="Alter">
+                                </form>
+                            </div>
+                        </div>';
                     }
                     ?>
                 </div>
