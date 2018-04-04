@@ -170,7 +170,8 @@ if(!isset($_SESSION['valid'])){
                 </h1>
             </div>
             <?php 
-                    echo '
+                include("php/config.php");
+                echo '
                 <!-- Display Remark Submission Form -->
                 <div id = "window" class = "shadow inContentBox">
                     <div id = "windowHeader">
@@ -179,7 +180,7 @@ if(!isset($_SESSION['valid'])){
                             <div class = "windowYl circle"></div>
                             <div class = "windowGn circle"></div>
                         </div>
-                        <div id = "windowTitle">Remark Request Page</div>
+                        <div id = "windowTitle">Enter Marks Page</div>
                     </div>
                     <div id = "windowContent" class="flex_wrapper">
                         <form id ="enterMarkForm" action="php/markSubmit.php" method = "POST">
@@ -190,21 +191,22 @@ if(!isset($_SESSION['valid'])){
                                 echo '
                             </p>
                             <label for="evaluatoin">Select Evaluatoin</label><br>
-                            <select placeholder = "evaluation" name="evaluation">
-                                <option value="q1">Quiz 1</option>
-                                <option value="a1">Assignment 1</option>
-                                <option value="midterm">Midterm</option>
-                                <option value="q2">Quiz 2</option>
-                                <option value="a2">Assignment 2</option>
-                                <option value="q3"> Quiz </option>
-                                <option value="a3">Assignment 3</option>
-                                <option value="practicals">Practicals</option>
+                            <select placeholder = "evaluation" name="evaluation">';
+                                $sqlForEvaluationNames = "SELECT column_name FROM information_schema.columns WHERE table_name = 'Marks'";
+                                $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
+                                $columnNames = mysqli_fetch_row($resultOfColumnNames);
+                                $columnNames = mysqli_fetch_row($resultOfColumnNames);
+                                while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
+                                    echo "<option value='".$columnNames[0]."'>".$columnNames[0]."</option>";
+                                }
+
+                            echo '
                             </select><br><br>
 
                             <label for="utorid">Select Student\'s UTORid</label><br>
                             <select placeholder = "doe455" name="utorid">';
                                 //<?php
-                                    include("php/config.php");
+                                    
                                     $sql = "SELECT * FROM Student";
                                     $result = mysqli_query($db, $sql);
                                     if (mysqli_num_rows($result) > 0) {
