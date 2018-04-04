@@ -306,6 +306,7 @@
                                 <label for="evaluatoin">Select Evaluatoin</label><br>
                                 <select placeholder = "evaluation" name="evaluation">
                                 ';
+                                include("php/config.php");
                                 $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
                                 $columnNames = mysqli_fetch_row($resultOfColumnNames);
                                 $columnNames = mysqli_fetch_row($resultOfColumnNames);
@@ -327,7 +328,6 @@
 
                                 <label for="ta">Select T.A. to Remark</label><br>
                                 <select placeholder = "John Doe" name="ta">';
-                                    include("php/config.php");
                                     $sql = "SELECT * FROM TA";
                                     $result = mysqli_query($db, $sql);
                                     if (mysqli_num_rows($result) > 0) {
