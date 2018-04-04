@@ -185,20 +185,22 @@
                         <!-- Get announcements from DB -->
                         <?php
                             include("php/config.php");
-                            $title = "SELECT title FR"
+                            $sql = "SELECT * FROM Announcements";
                             $result = mysqli_query($db, $sql);
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
-                                    echo '
+                                    echo "
                                     <div class = "announce windowGn">
                                         <span class="exit">&times;</span>
-                                        <h4>'.$row[title]'</h4>
-                                        <h5>Posted: '.$row[date].'</h5>
-                                        <p>'.$row[content]'</p>
+                                        <h4>".$row['title']."</h4>
+                                        <h5>Posted: ".$row['date']."</h5>
+                                        <p>".$row['content']."</p>
                                     </div>
-                                    ';
+                                    ;
+                                    "
                                 }
                             }
+                            mysqli_free_result($result);
                             $db->close();
                         ?>
                     </div>

@@ -324,6 +324,7 @@ if(!isset($_SESSION['valid'])){
                                     <p>".$row['content']."</p>
                                 </div>
                                 ;
+                                "
                             }
                         }
                         mysqli_free_result($result);
