@@ -10,7 +10,7 @@
             $sql = "DELETE FROM ".$table." WHERE ".$columnName." = ".$ID;
         } else if ($column === true) {
             // Deleting column from table
-            $sql = "ALTER TABLE ".$table." DROP ".$value;
+            $sql = "ALTER TABLE ".$table." DROP ".$columnName;
         }
         echo $sql;
         $result = mysqli_query($db, $sql);
