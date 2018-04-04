@@ -28,7 +28,10 @@
         } else {
             $msg = "Usage Error: No action was selected";
         }   
-
-        header("Location: ../marks.php");
+    } else {
+        $msg = "Usage Error: No action was selected";
     }
+    
+    $_SESSION['error'] = $msg;
+    header("Location: ../marks.php");
 ?>
