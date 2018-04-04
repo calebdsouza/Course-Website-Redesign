@@ -330,9 +330,9 @@
                                     </p>
                                     <label>Selecte The Action You Wish To Preform</label><br>
                                     <label for = "isDeletingEval">Remove Evaluation</label>
-                                    <input type = "radio" name = "isDeletingEval"><br>
+                                    <input type = "radio" name = "action" value = "delete"><br>
                                     <label for = "isAddingEval">Add Evaluation</label>
-                                    <input type = "radio" name = "isAddingEval"><br><br>
+                                    <input type = "radio" name = "action" value = "add"><br><br>
 
                                     <label for="evaluatoin">Select Evaluatoin</label><br>
                                     <select placeholder = "evaluation" name="evaluation">

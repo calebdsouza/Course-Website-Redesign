@@ -6,16 +6,16 @@
     $_SESSION['error'] = $msg;
     $isInsertRow = false;
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (($_SERVER["REQUEST_METHOD"] == "POST") && isset($_POST["action"])) {
         $table = "Evaluations";
-        if (isset($_POST["isDeletingEval"])) {
+        if (isset($_POST["action"]) == "delete") {
             if (isset($_POST["evaluation"])) {
                 include("delete.php");
                 $columnName = $_POST["evaluation"];
                 delete($table, $columnName, true, NULL);
             }
 
-        } else if (isset($_POST["isAddingEval"])) {
+        } else if (isset($_POST["action"]) == "add") {
             if (isset($_POST["newEvalName"])) {
                 // Inserting column to table
                 $sql = "ALTER TABLE ".$table." ADD ".$columnName." VARCHAR(20)";
