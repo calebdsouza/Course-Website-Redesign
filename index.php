@@ -312,7 +312,7 @@ if(!isset($_SESSION['valid'])){
                     <!-- Get announcements from DB -->
                     <?php
                         include(config.php);
-                        $title = "SELECT title FR"
+                        $sql = "SELECT title FR";
                         $result = mysqli_query($db, $sql);
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -326,6 +326,7 @@ if(!isset($_SESSION['valid'])){
                                 ';
                             }
                         }
+                        mysqli_free_result($result);
                         $db->close();
                     ?>
             <!--
