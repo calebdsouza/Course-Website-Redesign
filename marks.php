@@ -311,7 +311,7 @@
                                 $columnNames = mysqli_fetch_row($resultOfColumnNames);
                                 $columnNames = mysqli_fetch_row($resultOfColumnNames);
                                 while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
-                                    echo "<option value='".$row[$columnNames[0]]."'>".$row[$columnNames[0]]."</option>";
+                                    echo "<option value='".$columnNames[0]."'>".$columnNames[0]."</option>";
                                 }
                                 
                                /* echo '
