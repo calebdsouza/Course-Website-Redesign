@@ -316,7 +316,7 @@
                                     <div class = "windowYl circle"></div>
                                     <div class = "windowGn circle"></div>
                                 </div>
-                                <div id = "windowTitle">Remark Request Page</div>
+                                <div id = "windowTitle">Alter Course Evaluations Page</div>
                             </div>
                             <div id = "windowContent" class="flex_wrapper">
                                 <form id ="loginForm" action="php/alterEvalSubmit.php" method = "POST">
@@ -352,7 +352,7 @@
                                     </select><br><br>
                                     
                                     <label for="newEvalName">Name Of New Evaluation:</label><br>
-                                    <intput type = "text" placeholder = "Assignment N" name="newEvalName">
+                                    <input type = "text" placeholder = "Evaluation N" name="newEvalName">
                                     <br><br>
                                     <input id="submitBtn" type="submit" value="Alter">
                                 </form>
