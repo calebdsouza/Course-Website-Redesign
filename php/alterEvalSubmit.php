@@ -21,7 +21,7 @@
                 $columnName = $_POST["newEvalName"];
                 $sql = "ALTER TABLE ".$table." ADD ".$columnName." VARCHAR(20)";
                 if ($result = mysqli_query($db, $sql)) {
-                    $msg = "Action was successfully added";
+                    $msg = "Evaluation was successfully added";
                 } else { // Send SQL error message
                     $msg = "Error: ".$sql."<br>".$db->error;
                 }
