@@ -311,7 +311,7 @@ if(!isset($_SESSION['valid'])){
                     <h3>Announcements</h3>
                     <!-- Get announcements from DB -->
                     <?php
-                        include(php/config.php);
+                        include("php/config.php");
                         $sql = "SELECT title FR";
                         $result = mysqli_query($db, $sql);
                         if (mysqli_num_rows($result) > 0) {
