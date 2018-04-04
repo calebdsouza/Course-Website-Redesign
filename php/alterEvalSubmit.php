@@ -12,6 +12,7 @@
             if (isset($_POST["evaluation"])) {
                 include("delete.php");
                 $columnName = $_POST["evaluation"];
+                echo $_POST["evaluation"];
                 delete($table, $columnName, true, NULL);
             }
 
