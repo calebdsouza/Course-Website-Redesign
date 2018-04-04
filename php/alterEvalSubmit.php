@@ -33,5 +33,5 @@
     }
     
     $_SESSION['error'] = $msg;
-    header("Location: ../marks.php");
+    //header("Location: ../marks.php");
 ?>
