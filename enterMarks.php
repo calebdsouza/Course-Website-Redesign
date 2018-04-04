@@ -17,13 +17,13 @@ if(!isset($_SESSION['valid'])){
         <!--Links-->
 		<link type="text/css" rel="stylesheet" href="CSS/basicIndex.css">
         <link type="text/css" rel="stylesheet" href="CSS/feedbackBasic.css">
-    
-        
+
+
         <title>CSCB20 | Enter Marks</title>
     </head>
     <body>
-        
-        
+
+
         <!-- Mobile Menu -->
         <div id = "mobileNav">
             <h1>CSCB20</h1>
@@ -43,6 +43,11 @@ if(!isset($_SESSION['valid'])){
                 <li>
                     <a href="index.php">Home</a>
                 </li>
+                <?php
+                    if ($_SESSION['accountType'] == "I") {
+                        echo '<li> <a href="enterAnnouncements.php">Announcements</a> </li>';
+                    }
+                ?>
                 <li>
                     <a href="#courseTeam">Course Team</a>
                 </li>
@@ -106,6 +111,11 @@ if(!isset($_SESSION['valid'])){
                 <li>
                     <a href="index.php" class="underLine">Home</a>
                 </li>
+                <?php
+                    if ($_SESSION['accountType'] == "I") {
+                        echo '<li> <a href="enterAnnouncements.php">Announcements</a> </li>';
+                    }
+                ?>
                 <li>
                     <a href="#courseTeam">Course Team</a>
                 </li>
@@ -169,7 +179,7 @@ if(!isset($_SESSION['valid'])){
                     ?>
                 </h1>
             </div>
-            <?php 
+            <?php
                 include("php/config.php");
                 echo '
                 <!-- Display Remark Submission Form -->
@@ -206,7 +216,7 @@ if(!isset($_SESSION['valid'])){
                             <label for="utorid">Select Student\'s UTORid</label><br>
                             <select placeholder = "doe455" name="utorid">';
                                 //<?php
-                                    
+
                                     $sql = "SELECT * FROM Student";
                                     $result = mysqli_query($db, $sql);
                                     if (mysqli_num_rows($result) > 0) {
@@ -230,7 +240,7 @@ if(!isset($_SESSION['valid'])){
                 </div>';
                 ?>
         </div>
-        <!-- Footer -->    
+        <!-- Footer -->
         <div id = "footer">
             <a href = "http://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
             <a>Site Design by Caleb D'Souza &#38; Michael Sun</a>

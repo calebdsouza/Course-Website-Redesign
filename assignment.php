@@ -17,13 +17,13 @@ if(!isset($_SESSION['valid'])){
         <!--Links-->
         <link type="text/css" rel="stylesheet" href="CSS/basicIndex.css">
         <link type="text/css" rel="stylesheet" href="CSS/assignmentBasic.css">
-        
-        
+
+
         <title>CSCB20 | Assignment</title>
     </head>
     <body>
-        
-        
+
+
         <!-- Mobile Menu -->
         <div id = "mobileNav">
             <h1>CSCB20</h1>
@@ -43,6 +43,11 @@ if(!isset($_SESSION['valid'])){
                 <li>
                     <a href="index.php">Home</a>
                 </li>
+                <?php
+                    if ($_SESSION['accountType'] == "I") {
+                        echo '<li> <a href="enterAnnouncements.php">Announcements</a> </li>';
+                    }
+                ?>
                 <li>
                     <a href="#courseTeam">Course Team</a>
                 </li>
@@ -106,6 +111,11 @@ if(!isset($_SESSION['valid'])){
                 <li>
                     <a href="index.php" class="underLine">Home</a>
                 </li>
+                <?php
+                    if ($_SESSION['accountType'] == "I") {
+                        echo '<li> <a href="enterAnnouncements.php">Announcements</a> </li>';
+                    }
+                ?>
                 <li>
                     <a href="#courseTeam">Course Team</a>
                 </li>
@@ -164,7 +174,7 @@ if(!isset($_SESSION['valid'])){
                     CSCB20: Introduction to Databases and Web Applications
                     </h1>
             </div>
-            
+
             <div id="assignments" class="flex_wrapper">
                 <!-- Card for assignment 1-->
                 <div class="card shadow">
@@ -188,12 +198,12 @@ if(!isset($_SESSION['valid'])){
                 </div>
             </div>
         </div>
-        <!-- Footer -->    
+        <!-- Footer -->
         <div id = "footer">
             <a href = "http://web.cs.toronto.edu/">Faculty of Computer Science at UofT</a>
             <a>Site Design by Caleb D'Souza &#38; Michael Sun</a>
         </div>
-        
+
         <!-- JavaScript -->
         <script type="text/javascript" src="JavaScript/func.js"></script>
     </body>

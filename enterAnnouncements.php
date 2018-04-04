@@ -2,7 +2,7 @@
     // Initialize the session and check if the user is logged in
     session_start();
     // If session variable is not set it will redirect to login page
-    if(!isset($_SESSION['valid'])){
+    if(!isset($_SESSION['valid']) && $_SESSION['accountType'] == 'I'){
         header("location: login.php");
         exit;
     }
@@ -179,6 +179,30 @@
                             ?>
                         </h1>
                     </div>
+                    <!-- How announcements appear on index page -->
+                    <div id ="announcements" class="shadow inContentBox">
+                        <h3>Announcements</h3>
+                        <!-- Get announcements from DB -->
+                        <?php
+                            include(config.php);
+                            $title = "SELECT title FR"
+                            $result = mysqli_query($db, $sql);
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo '
+                                    <div class = "announce windowGn">
+                                        <span class="exit">&times;</span>
+                                        <h4>'.$row[title]'</h4>
+                                        <h5>Posted: '.$row[date].'</h5>
+                                        <p>'.$row[content]'</p>
+                                    </div>
+                                    ';
+                                }
+                            }
+                            $db->close();
+                        ?>
+                    </div>
+
                     <!-- Display Student's Marks -->
                     <div id="marks" class = "shadow inContentBox">
                         <h3>Course Marks</h3>

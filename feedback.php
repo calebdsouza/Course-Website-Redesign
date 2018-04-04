@@ -45,6 +45,11 @@ if(!isset($_SESSION['valid'])){
                     <li>
                         <a href="index.php">Home</a>
                     </li>
+                    <?php
+                        if ($_SESSION['accountType'] == "I") {
+                            echo '<li> <a href="enterAnnouncements.php">Announcements</a> </li>';
+                        }
+                    ?>
                     <li>
                         <a href="#courseTeam">Course Team</a>
                     </li>
@@ -108,6 +113,11 @@ if(!isset($_SESSION['valid'])){
                     <li>
                         <a href="index.php" class="underLine">Home</a>
                     </li>
+                    <?php
+                        if ($_SESSION['accountType'] == "I") {
+                            echo '<li> <a href="enterAnnouncements.php">Announcements</a> </li>';
+                        }
+                    ?>
                     <li>
                         <a href="#courseTeam">Course Team</a>
                     </li>

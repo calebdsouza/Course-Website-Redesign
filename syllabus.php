@@ -17,12 +17,12 @@ if(!isset($_SESSION['valid'])){
         <!--Links-->
 		<link type="text/css" rel="stylesheet" href="CSS/basicIndex.css">
         <link type="text/css" rel="stylesheet" href="CSS/syllabusBasic.css">
-        
+
         <title>CSCB20 | Syllabus</title>
     </head>
     <body>
         <div id = "intorWrapper">
-        
+
             <!-- Mobile Menu -->
             <div id = "mobileNav">
                 <h1>CSCB20</h1>
@@ -42,6 +42,11 @@ if(!isset($_SESSION['valid'])){
                     <li>
                         <a href="index.php">Home</a>
                     </li>
+                    <?php
+                        if ($_SESSION['accountType'] == "I") {
+                            echo '<li> <a href="enterAnnouncements.php">Announcements</a> </li>';
+                        }
+                    ?>
                     <li>
                         <a href="#courseTeam">Course Team</a>
                     </li>
@@ -105,6 +110,11 @@ if(!isset($_SESSION['valid'])){
                     <li>
                         <a href="index.php" class="underLine">Home</a>
                     </li>
+                    <?php
+                        if ($_SESSION['accountType'] == "I") {
+                            echo '<li> <a href="enterAnnouncements.php">Announcements</a> </li>';
+                        }
+                    ?>
                     <li>
                         <a href="#courseTeam">Course Team</a>
                     </li>
@@ -162,7 +172,7 @@ if(!isset($_SESSION['valid'])){
                         <h1 >
                         CSCB20: Introduction to Databases and Web Applications
                         </h1>
-    
+
                 </div>
                 <div id = "syllabus" class="shadow inContentBox">
                     <h3>Syllabus</h3>
@@ -316,7 +326,7 @@ if(!isset($_SESSION['valid'])){
                             </div>
                             <div class="accordion_content">
                                 <p>
-                                    No Other Content Avaiable 
+                                    No Other Content Avaiable
                                 </p>
                             </div>
                         </div>

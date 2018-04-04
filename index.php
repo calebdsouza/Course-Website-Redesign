@@ -43,6 +43,11 @@ if(!isset($_SESSION['valid'])){
                     <li>
                         <a href="index.php">Home</a>
                     </li>
+                    <?php
+                        if ($_SESSION['accountType'] == "I") {
+                            echo '<li> <a href="enterAnnouncements.php">Announcements</a> </li>';
+                        }
+                    ?>
                     <li>
                         <a href="#courseTeam">Course Team</a>
                     </li>
@@ -106,6 +111,11 @@ if(!isset($_SESSION['valid'])){
                     <li>
                         <a href="index.php" class="underLine">Home</a>
                     </li>
+                    <?php
+                        if ($_SESSION['accountType'] == "I") {
+                            echo '<li> <a href="enterAnnouncements.php">Announcements</a> </li>';
+                        }
+                    ?>
                     <li>
                         <a href="#courseTeam">Course Team</a>
                     </li>
@@ -299,6 +309,26 @@ if(!isset($_SESSION['valid'])){
                 <!-- Announcements Panel -->
                 <div id = "announcements" class="shadow inContentBox">
                     <h3>Announcements</h3>
+                    <!-- Get announcements from DB -->
+                    <?php
+                        include(config.php);
+                        $title = "SELECT title FR"
+                        $result = mysqli_query($db, $sql);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo '
+                                <div class = "announce windowGn">
+                                    <span class="exit">&times;</span>
+                                    <h4>'.$row[title]'</h4>
+                                    <h5>Posted: '.$row[date].'</h5>
+                                    <p>'.$row[content]'</p>
+                                </div>
+                                ';
+                            }
+                        }
+                        $db->close();
+                    ?>
+            <!--
                     <div class = "announce windowGn">
                         <span class="exit">&times;</span>
                         <h4>Reminders About Assingment 2</h4>
@@ -333,8 +363,8 @@ if(!isset($_SESSION['valid'])){
                             -Abbas
                         </p>
                     </div>
+                -->
                 </div>
-
                 <!-- Calendar -->
                 <iframe src="https://calendar.google.com/calendar/embed?src=2nu2edvea7ri3t5cgbcv21cibc%40group.calendar.google.com&amp;ctz=America%2FToronto" width="800" height="600" frameborder="0" scrolling="no" class="inContentBox"></iframe>
 

@@ -39,6 +39,11 @@
                     <li>
                         <a href="index.php">Home</a>
                     </li>
+                    <?php
+                        if ($_SESSION['accountType'] == "I") {
+                            echo '<li> <a href="enterAnnouncements.php">Announcements</a> </li>';
+                        }
+                    ?>
                     <li>
                         <a href="#courseTeam">Course Team</a>
                     </li>
@@ -102,6 +107,11 @@
                     <li>
                         <a href="index.php" class="underLine">Home</a>
                     </li>
+                    <?php
+                        if ($_SESSION['accountType'] == "I") {
+                            echo '<li> <a href="enterAnnouncements.php">Announcements</a> </li>';
+                        }
+                    ?>
                     <li>
                         <a href="#courseTeam">Course Team</a>
                     </li>
@@ -184,7 +194,7 @@
                                     include("php/config.php");
                                     if ($_SESSION['accountType'] == 'T') {
                                         $sql = "SELECT * FROM Remarks WHERE TAid =".$_SESSION['UTORid'];
-                                        
+
                                     } else if ($_SESSION['accountType'] == 'I') {
                                         $sql = "SELECT * FROM Remarks";
                                     }
