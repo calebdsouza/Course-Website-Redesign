@@ -18,6 +18,7 @@
         } else if ($_POST["action"] == "add") {
             if (isset($_POST["newEvalName"])) {
                 // Inserting column to table
+                $columnName = $_POST["newEvalName"];
                 $sql = "ALTER TABLE ".$table." ADD ".$columnName." VARCHAR(20)";
                 if ($result = mysqli_query($db, $sql)) {
                     $msg = "Action was successfully added";
