@@ -7,7 +7,7 @@
     $isInsertRow = false;
 
     if (($_SERVER["REQUEST_METHOD"] == "POST") && isset($_POST["action"])) {
-        $table = "Evaluations";
+        $table = "Marks";
         if ($_POST["action"] == "delete") {
             if (isset($_POST["evaluation"])) {
                 include("delete.php");
