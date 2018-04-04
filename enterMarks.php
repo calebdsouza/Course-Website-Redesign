@@ -19,7 +19,7 @@ if(!isset($_SESSION['valid'])){
         <link type="text/css" rel="stylesheet" href="CSS/feedbackBasic.css">
     
         
-        <title>CSCB20 | Feedback</title>
+        <title>CSCB20 | Enter Marks</title>
     </head>
     <body>
         

@@ -17,7 +17,7 @@
         if ($result == True) {
             $msg = "Was successfully delete";
         } else { // Send SQL error message
-            $msg = "Error: " . $sql . "<br>" . $db->error;
+            $msg = "Error: ".$sql."<br>". $db->error;
         }
         echo $msg;
         $_SESSION['error'] = $msg;

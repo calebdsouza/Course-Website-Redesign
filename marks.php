@@ -184,16 +184,6 @@
                                         while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
                                             echo '<div class = "cell">'.$columnNames[0].'</div>';
                                         }
-                                    /*<div class = "cell">UTORid</div>
-                                    <div class = "cell">Quiz 1</div>
-                                    <div class = "cell">Assingment 1</div>
-                                    <div class = "cell">Midterm</div>
-                                    <div class = "cell">Quiz 2</div>
-                                    <div class = "cell">Assingment 2</div>
-                                    <div class = "cell">Quiz 3</div>
-                                    <div class = "cell">Assingment 3</div>
-                                    <div class = "cell">Practicals</div>
-                                    <div class = "cell">Final</div>*/
                                 echo '</div>
                             </div>
                             <div class = "tbody">';
@@ -212,17 +202,6 @@
                                                 while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
                                                     echo '<div class = "cell">'.$row[$columnNames[0]].'</div>';
                                                 }
-                                               /* echo '
-                                                <div class = "cell">'.$row['UTORid'].'</div>
-                                                <div class = "cell">'.$row['q1'].'</div>
-                                                <div class = "cell">'.$row['a1'].'</div>
-                                                <div class = "cell">'.$row['midterm'].'</div>
-                                                <div class = "cell">'.$row['q2'].'</div>
-                                                <div class = "cell">'.$row['a2'].'</div>
-                                                <div class = "cell">'.$row['q3'].'</div>
-                                                <div class = "cell">'.$row['a3'].'</div>
-                                                <div class = "cell">'.$row['practicals'].'</div>
-                                                <div class = "cell">'.$row['final'].'</div>';*/
                                             }
                                         }
                                         // Free result set
@@ -241,19 +220,6 @@
                                             while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
                                                 echo '<div class = "cell">'.$row[$columnNames[0]].'</div>';
                                             }
-                                            /*echo '
-                                            <div class = "row">
-                                                <div class = "cell">'.$row['UTORid'].'</div>
-                                                <div class = "cell">'.$row['q1'].'</div>
-                                                <div class = "cell">'.$row['a1'].'</div>
-                                                <div class = "cell">'.$row['midterm'].'</div>
-                                                <div class = "cell">'.$row['q2'].'</div>
-                                                <div class = "cell">'.$row['a2'].'</div>
-                                                <div class = "cell">'.$row['q3'].'</div>
-                                                <div class = "cell">'.$row['a3'].'</div>
-                                                <div class = "cell">'.$row['practicals'].'</div>
-                                                <div class = "cell">'.$row['final'].'</div>
-                                            </div>';*/
                                             echo '</div>';
                                         }
                                         // Row of the avrage for each evaluation 
@@ -273,6 +239,58 @@
                                 // Free result set
                                 mysqli_free_result($result);
                                 $db->close();
+
+                                echo '
+                                <!-- Alter Evaluations Form -->
+                                <div id = "window" class = "shadow inContentBox">
+                                    <div id = "windowHeader">
+                                        <div id = "windowBtns">
+                                            <div class = "windowRd circle"></div>
+                                            <div class = "windowYl circle"></div>
+                                            <div class = "windowGn circle"></div>
+                                        </div>
+                                        <div id = "windowTitle">Remark Request Page</div>
+                                    </div>
+                                    <div id = "windowContent" class="flex_wrapper">
+                                        <form id ="loginForm" action="php/alterEvalSubmit.php" method = "POST">
+                                            <p id = "loginErrorMsg">';
+                                                //<?php
+                                                    if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+                                                        echo  $_SESSION['error'];
+                                                    }
+                                                //?
+                                                echo '
+                                            </p>
+                                            <label for = "isDeletingEval">Selecte The Action You Wish To Preform</label>
+                                            <input type = "radio" name = "isDeletingEval">
+                                            <input type = "radio" name = "isAddingEval">
+
+                                            <label for="evaluatoin">Select Evaluatoin</label><br>
+                                            <select placeholder = "evaluation" name="evaluation">
+                                            ';
+                                            include("php/config.php");
+                                            $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
+                                            $columnNames = mysqli_fetch_row($resultOfColumnNames);
+                                            $columnNames = mysqli_fetch_row($resultOfColumnNames);
+                                            while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
+                                                echo "<option value='".$columnNames[0]."'>".$columnNames[0]."</option>";
+                                            }
+
+                                            echo '
+                                        </select><br><br>
+                                            ';
+                                              
+                                                // Free result set
+                                                mysqli_free_result($result);
+                                                $db->close();
+                                                echo '
+                                            <label for="newEvalName">Name Of New Evaluation:</label><br>
+                                            <intput type = "text" placeholder = "Assignment N" name="newEvalName">
+                                            <br><br>
+                                            <input id="submitBtn" type="submit" value="Alter">
+                                        </form>
+                                    </div>
+                                </div>';
                             }
                         }
                             ?>
@@ -313,16 +331,7 @@
                                 while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
                                     echo "<option value='".$columnNames[0]."'>".$columnNames[0]."</option>";
                                 }
-                                
-                               /* echo '
-                                    <option value="Quiz 1">Quiz 1</option>
-                                    <option value="Assignment 1">Assignment 1</option>
-                                    <option value="Midterm">Midterm</option>
-                                    <option value="Quiz 2">Quiz 2</option>
-                                    <option value="Assignment 2">Assignment 2</option>
-                                    <option value="Quiz 3"> Quiz </option>
-                                    <option value="Assignment 3">Assignment 3</option>
-                                    <option value="Practicals">Practicals</option>*/
+
                                 echo '
                                </select><br><br>
 
