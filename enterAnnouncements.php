@@ -218,11 +218,13 @@
                                 <div id = "windowTitle">Enter Announcements Page</div>
                             </div>
                             <div id = "windowContent" class="flex_wrapper">
-                                <form id ="loginForm" action="php/alterEvalSubmit.php" method = "POST">
+                                <form id ="loginForm" action="php/announcementSubmit.php" method = "POST">
+                                    <label for="newTitleName">Give title for new Announcement:</label><br>
+                                    <input type = "text" placeholder = "Title here" name="new_title">
                                     <br><br>
 
-                                    <label for="newTitleName">Give title for new Announcement:</label><br>
-                                    <input type = "text" placeholder = "Title here" name="newTitleName">
+                                    <label for="newContent">Place content here:</label><br>
+                                    <textarea name = "announcement_content"></textarea><br>
                                     <br><br>
                                     <input id="submitBtn" type="submit" value="Submit">
                                 </form>
