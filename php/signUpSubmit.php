@@ -58,7 +58,7 @@
             $table = "TA";
             $sql = "INSERT INTO ".$table.
                     " (UTORid, First, Last, Email) VALUES (
-                    '".$utorid."', '".$first"', '".$last"', '".$email"')";
+                    '".$utorid."', '".$first."', '".$last."', '".$email."')";
             // Insert and check if given POST information was added to the db
             if ($db->query($sql) === TRUE) {
                 $msg = "TA was successfully added";
