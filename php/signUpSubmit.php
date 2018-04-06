@@ -14,7 +14,7 @@
         $accountType = mysqli_real_escape_string($db, $_POST['accountType']);
         $first = mysqli_real_escape_string($db, $_POST['first']);
         $last = mysqli_real_escape_string($db, $_POST['last']);
-        $utorid = myysqli_real_escap_string($db, $_POST['utorid']);
+        $utorid = mysqli_real_escap_string($db, $_POST['utorid']);
         $password = mysqli_real_escap_string($db, $_POST['password']);
         $confirm_password = mysqli_real_escap_string($db, $_POST['confirm_password']);
         $email = mysqli_real_escap_string($db, $_POST['email']);
