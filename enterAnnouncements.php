@@ -193,7 +193,7 @@
                                     <div class = "announce windowGn">
                                         <span class="exit">&times;</span>
                                         <h4>'.$row['title'].'</h4>
-                                        <h5>Posted: '.$row['date'].'</h5>
+                                        <h5>Posted: '.$row['posted'].'</h5>
                                         <p>'.$row['content'].'</p>
                                     </div>
                                 ';
