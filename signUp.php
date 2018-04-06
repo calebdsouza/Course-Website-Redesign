@@ -7,15 +7,15 @@
         <!--Links-->
 		<link type="text/css" rel="stylesheet" href="CSS/basicIndex.css">
         <link type="text/css" rel="stylesheet" href="CSS/loginBasic.css">
-        
+
         <title>CSCB20 | Sign Up</title>
     </head>
     <body>
 
 
         <div id = "intorWrapper">
-        
-           
+
+
             <div id="siteWrapper">
             <!-- Main Page Content -->
                 <div id = "header" class="shadow inContentBox">
@@ -23,7 +23,7 @@
                     CSCB20: Introduction to Databases and Web Applications
                     </h1>
                 </div>
-                
+
                 <!-- Login Module -->
                 <div id = "window" class = "shadow inContentBox">
                     <div id = "windowHeader">
@@ -46,9 +46,9 @@
                             </P>
                             <label for="accountType">Account Type</label><br>
                             <select name="accountType">
-                                <option value = "S">Student</option>
-                                <option value = "T">Teaching Assistant</option>
-                                <option value = "I">Instructor</option>
+                                <option value = 'S'>Student</option>
+                                <option value = 'T'>Teaching Assistant</option>
+                                <option value = 'I'>Instructor</option>
                             </select><br><br>
                             <label for="first">First Name</label><br>
                             <input type="text" placeholder = "John" name="first"><br>
@@ -58,10 +58,14 @@
                             <input type="text" placeholder = "doe1234" name="utorid"><br>
                             <label for="password">Password</label><br>
                             <input type="text" placeholder = "password" name="password"><br>
+                            <label for="password">Confirm Password</label><br>
+                            <input type="text" placeholder = "confirm password" name="confirm_password"><br>
                             <label for="email">Email</label><br>
                             <input type="text" placeholder = "john.doe@mail.utoronto.ca" name="email"><br>
+                        <!--
                             <label for="code">Access Code To Create Account</label><br>
                             <input type="text" placeholder = "student23" name="code"><br>
+                        -->
                             <input id="submitBtn" type="submit" value="Create">
                         </form>
                         <div id = "homeMenuButton">
