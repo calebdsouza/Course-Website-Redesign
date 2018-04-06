@@ -1,0 +1,252 @@
+-- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
+--
+-- Host: localhost    Database: cscb20w18_sunyuan8
+-- ------------------------------------------------------
+-- Server version	5.7.21-0ubuntu0.16.04.1-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `Announcements`
+--
+
+DROP TABLE IF EXISTS `Announcements`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Announcements` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) DEFAULT NULL,
+  `content` varchar(5000) DEFAULT NULL,
+  `posted` date DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Announcements`
+--
+
+LOCK TABLES `Announcements` WRITE;
+/*!40000 ALTER TABLE `Announcements` DISABLE KEYS */;
+INSERT INTO `Announcements` VALUES (1,'Reminders About Assingment 2','1. You cannot use 3rd party CSS framework. <br>\n                            2. You cannot use 3rd party JavaScript framework such as  JQuery etc. <br>\n                            4. You can use the content (such as pdf, instructor name, TA name, etc. etc.) from either Anna\'s website or our current website. <br>\n                            5. Each user story can be 2-3 sentences. Concentrate on how the user will interact with your website. Also to think about here is the kinds of user (instructor or admin or student). Your user stories and mock diagram must be well considered and thorough. In your mock diagram, please do not use a screenshot of the actual web page. This is incorrect. The mock diagram happens first. At this point, you have a rough idea of how the webpage should work and how the user will interact with it. <br>\n                            6. Here are some example of user stories, that I encourage you to read and get familiar with: https://www.mountaingoatsoftware.com/agile/user-stories <br>\n                            7. Make sure to test and run your webpage on Google Chrome. If your webpage depends on some images and other resources, make sure to have them placed appropriately in the directory that you submit to us. Please see the assignment handout for this.\n','2018-04-04'),(2,'Extra TA Office Hours','Here are some office hours by TA for this week:<br>\n                            Nagarjun - Tuesday 9am - 12pm @ IC404 <br>\n                            Zhongyang - Friday 1pm - 4pm @ IC404<br>\n                            Syeda - Thursday 11am-12pm &amp; Friday 3pm to 5pm @ IC404 <br>','2018-04-04'),(3,'Office Hours Cancelled!','Office hours on 2nd March Are Cancelled. I am sorry about this, but I have had some bad back ache tonight. I will see you guys again on Monday. <br>\n                            -Abbas','2018-04-04');
+/*!40000 ALTER TABLE `Announcements` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Feedback`
+--
+
+DROP TABLE IF EXISTS `Feedback`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Feedback` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `instructorID` int(11) DEFAULT NULL,
+  `q1` varchar(200) DEFAULT NULL,
+  `q2` varchar(200) DEFAULT NULL,
+  `q3` varchar(300) DEFAULT NULL,
+  `q4` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Feedback`
+--
+
+LOCK TABLES `Feedback` WRITE;
+/*!40000 ALTER TABLE `Feedback` DISABLE KEYS */;
+INSERT INTO `Feedback` VALUES (8,3,'bvjhv  ','vcgbc','mngc vghmgh ',' n gh vgh v');
+/*!40000 ALTER TABLE `Feedback` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Instructors`
+--
+
+DROP TABLE IF EXISTS `Instructors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Instructors` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `UTORid` varchar(11) DEFAULT NULL,
+  `First` varchar(20) DEFAULT NULL,
+  `Last` varchar(20) DEFAULT NULL,
+  `Email` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `Instructors_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Login` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Instructors`
+--
+
+LOCK TABLES `Instructors` WRITE;
+/*!40000 ALTER TABLE `Instructors` DISABLE KEYS */;
+INSERT INTO `Instructors` VALUES (3,'instc32','Abbas','Attawal','abbas.at@mail.utoronto.ca');
+/*!40000 ALTER TABLE `Instructors` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Login`
+--
+
+DROP TABLE IF EXISTS `Login`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Login` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `UTORid` varchar(30) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `Type` char(1) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Login`
+--
+
+LOCK TABLES `Login` WRITE;
+/*!40000 ALTER TABLE `Login` DISABLE KEYS */;
+INSERT INTO `Login` VALUES (1,'123','1234','S'),(2,'1000000000','asdf','S'),(3,'1901234561','applepi','I'),(4,'1002636114','sunyuan8','S'),(5,'763123012','TA','T'),(6,'763124321','TA2','T');
+/*!40000 ALTER TABLE `Login` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Marks`
+--
+
+DROP TABLE IF EXISTS `Marks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Marks` (
+  `ID` int(11) NOT NULL,
+  `UTORid` varchar(11) DEFAULT NULL,
+  `a2` double DEFAULT NULL,
+  `q1` double DEFAULT NULL,
+  `q3` double DEFAULT NULL,
+  `labs` double DEFAULT NULL,
+  `midterm` double DEFAULT NULL,
+  `final` double DEFAULT NULL,
+  `total` double DEFAULT NULL,
+  `practicals` double DEFAULT NULL,
+  `a3` varchar(20) DEFAULT NULL,
+  `a1` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `Marks_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Login` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Marks`
+--
+
+LOCK TABLES `Marks` WRITE;
+/*!40000 ALTER TABLE `Marks` DISABLE KEYS */;
+INSERT INTO `Marks` VALUES (1,'123',83,60,40,100,95,90,90,5,NULL,NULL),(2,'456',50,80,80,80,20,20,70,NULL,NULL,NULL),(3,'789',70,90,90,100,2,100,100,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `Marks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Remarks`
+--
+
+DROP TABLE IF EXISTS `Remarks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Remarks` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `UTORid` varchar(11) DEFAULT NULL,
+  `Evaluation` varchar(20) DEFAULT NULL,
+  `Reason` varchar(300) DEFAULT NULL,
+  `TAid` varchar(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Remarks`
+--
+
+LOCK TABLES `Remarks` WRITE;
+/*!40000 ALTER TABLE `Remarks` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Remarks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Student`
+--
+
+DROP TABLE IF EXISTS `Student`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Student` (
+  `ID` int(11) NOT NULL,
+  `UTORid` varchar(30) DEFAULT NULL,
+  `FIRST` varchar(30) DEFAULT NULL,
+  `LAST` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `ID` FOREIGN KEY (`ID`) REFERENCES `Login` (`ID`),
+  CONSTRAINT `Student_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Login` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Student`
+--
+
+LOCK TABLES `Student` WRITE;
+/*!40000 ALTER TABLE `Student` DISABLE KEYS */;
+INSERT INTO `Student` VALUES (1,'123','No','Name'),(2,'sunyuan8','Yuan','Sun'),(4,'dsoouz','Caleb','D\'Souza');
+/*!40000 ALTER TABLE `Student` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `TA`
+--
+
+DROP TABLE IF EXISTS `TA`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `TA` (
+  `ID` int(11) NOT NULL,
+  `UTORid` varchar(11) DEFAULT NULL,
+  `First` varchar(20) DEFAULT NULL,
+  `Last` varchar(20) DEFAULT NULL,
+  `Email` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `TA_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Login` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TA`
+--
+
+LOCK TABLES `TA` WRITE;
+/*!40000 ALTER TABLE `TA` DISABLE KEYS */;
+INSERT INTO `TA` VALUES (5,'yota12','BOB_TA','ROB_TA','bob.rob@maili.utoronto.ca'),(6,'aosdj32','Joe_ta','Sam_ta','joe.sam@mail.utoronto.ca');
+/*!40000 ALTER TABLE `TA` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-04-05 20:40:13
