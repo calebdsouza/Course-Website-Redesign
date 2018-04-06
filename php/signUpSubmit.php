@@ -38,7 +38,7 @@
     }
 
     $_SESSION['error'] = $msg;
-    header("Location: ../marks.php");
+    header("Location: ../index.php");
     
     // Free result set
     mysqli_free_result($result);
