@@ -37,6 +37,7 @@ body {
     height: 100vh;
     position: fixed;
     max-width: 18%;
+    overflow-y: auto;
 }
 
 #sideNav ul {
@@ -60,12 +61,11 @@ body {
 
 #sideNav ul li a {
     color: aliceblue;
-    font-size: 1.6vw;
+    font-size: 1.4vw;
     /*font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 2px;
     text-decoration: none;
-    text-stroke: 0.2px #3379b7;
     -webkit-text-stroke: 0.2px #3379b7;
 }
 
@@ -79,7 +79,7 @@ body {
     border: 1px solid #485667;
     color: aliceblue;
     font-size: 1.5em;
-    width: 98%;
+    width: 90%;
 }
 
 .search:focus {
@@ -120,7 +120,7 @@ body {
     height: 35px;
 }
 
-.loginBtn a{
+.loginBtn a {
     color: aliceblue !important;
     padding: 5px 25px;
     border: none;
@@ -174,7 +174,7 @@ body {
     display: inline-block;
     float: right;
     margin-top: 15px;
-    margin-right: 5vw;
+    margin-right: 8vw;
     vertical-align: middle;
 }
 
@@ -272,7 +272,6 @@ body {
 #window {
     background: #485667;
     border-radius: 2% 2% 1.5% 1.5%;
-    min-height: 500px;
 }
 
 #windowHeader {
@@ -315,7 +314,6 @@ body {
 
 #windowContent {
     color: whitesmoke;
-    height: 475px;
     overflow-y: scroll;
     padding: 2.5% 5%;
 }
@@ -370,6 +368,33 @@ body {
     display: table-cell;
     vertical-align: middle;
     padding: 1vh 2vw;
+}
+
+/* Accordion */
+.accordion {
+    margin: 0;
+}
+
+.accordion_header {
+    cursor: pointer;
+    display: inherit;
+    height: 100%;
+    padding: 1.5vh 4vw;
+}
+
+.accordion_header h4 {
+    margin: 0;
+}
+
+.accordion_header:hover { 
+    background: aliceblue;
+}
+
+.accordion_content {
+    display: none;
+    opacity: 0;
+    margin: 0;
+    padding: 0.5vh 2.5vw;
 }
 
 /* Note */
@@ -427,6 +452,80 @@ body {
     height: 2px;
     width: 80%;
 }
+/***** FORMS ******/
+form{
+    display: block;
+    margin: 10vh auto;
+    align-self: center;
+    margin: 7vh 4vw;
+    width: 100%;
+}
+
+lable {
+    color: #174a79;
+    margin: 0 3vw -20px 3vw;
+}
+
+input {
+    color: white !important;
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid aliceblue;
+    margin: 1vh 0vw;
+    transition: 0.15s ease-in;
+    width: 40%;
+}
+
+form:nth-child(5) {
+    margin-top: 10vh !important;
+}
+
+input:focus {
+    outline: none;
+    border-color: #49BCFF !important;
+    border-bottom-width: 2px;
+}
+
+input:focus + lable {
+    color: #49BCFF !important;
+}
+
+textArea {
+    color: white;
+    background: transparent;
+    border-bottom: 2px solid aliceblue;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    height: 40px;
+    margin: 1vh 0vw 5vh 0vw;
+    width: 100%;
+    transition: 0.15s ease-in
+}
+
+textArea:focus {
+    outline: none;
+    border-color: #49BCFF !important; 
+}
+
+input[type=submit] {
+    background-color: #26466D;
+    border: 1px solid #262626;
+    border-radius: 4px !important;
+    color: aliceblue !important;
+    cursor: pointer;
+    margin: 0;
+    height: 29px;
+    transition: 0.4s ease-in;
+    width: 90px;
+}
+
+#submitBtn:hover {
+    background-color: #49BCFF;
+    border-color: #3379b7;
+}
 
 /***** FOOTER *****/
 #footer {
@@ -434,7 +533,8 @@ body {
     background: #001129;
     bottom: 0;
     height: 50px;
-    width: 100%;
+    width: 82%;
+    margin-left: 18%;
     content: ''; 
     clear: both;
 }
@@ -566,8 +666,8 @@ iframe {
 .display {
     display: block !important;
     opacity: 0.7 !important;
-    -webkit-transition: opacity 1s !imoprtant;
-    transition: opacity 1s;
+    -webkit-transition: opacity 1s ease-in !important;
+    transition: opacity 1s ease-in;
 }
 
 .shadow {
