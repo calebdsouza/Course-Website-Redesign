@@ -23,8 +23,8 @@
         // Create sql insert statment
         $table = "Login";
         $sql = "INSERT INTO ".$table.
-                " (UTORid, password, Type) VALUES (
-                '".$utorid."', '".$password"', '".$accountType"')";
+                " (UTORid, password, Type) VALUES (".
+                "'".$utorid."', '".$password"', '".$accountType"')";
         // Insert and check if given POST information was added to the db
         if ($db->query($sql) === TRUE) {
             $msg = "Remark was successfully submitted";
