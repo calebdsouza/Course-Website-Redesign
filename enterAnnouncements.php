@@ -204,148 +204,10 @@
                         ?>
                     </div>
 
-                    <!-- Display Student's Marks -->
-                    <div id="marks" class = "shadow inContentBox">
-                        <h3>Course Marks</h3>
-                        <div class = "table">
-                            <div class = "thead">
-                                <div class = "row">
-                                    <?php
-                                        include("php/config.php");
-                                        $sqlForEvaluationNames = "SELECT column_name FROM information_schema.columns WHERE table_name = 'Marks'";
-                                        $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
-                                        $numOfColums = mysqli_num_rows($resultOfColumnNames);
-                                        if ($numOfColums > 0) {
-                                            $columnNames = mysqli_fetch_row($resultOfColumnNames);
-
-                                        while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
-                                            echo '<div class = "cell">'.$columnNames[0].'</div>';
-                                        }
-                                echo '</div>
-                            </div>
-                            <div class = "tbody">';
-
-                                    if ($_SESSION['accountType'] == 'S') {
-
-                                    echo '<div class = "row">';
-
-
-                                        $sql = "SELECT * FROM Marks WHERE UTORid =".$_SESSION['UTORid'];
-                                        $result = mysqli_query($db, $sql);
-                                        if (mysqli_num_rows($result) > 0) {
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                                $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
-                                                $columnNames = mysqli_fetch_row($resultOfColumnNames);
-                                                while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
-                                                    echo '<div class = "cell">'.$row[$columnNames[0]].'</div>';
-                                                }
-                                            }
-                                        }
-                                        // Free result set
-                                        mysqli_free_result($result);
-                                        $db->close();
-                                    echo '
-                                </div>';
-
-                            } else if ($_SESSION['accountType'] == 'I') {
-                                $sql = "SELECT * FROM Marks";
-                                $result = mysqli_query($db, $sql);
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            echo '<div class = "row">';
-                                            $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
-                                            $columnNames = mysqli_fetch_row($resultOfColumnNames);
-                                            while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
-                                                echo '<div class = "cell">'.$row[$columnNames[0]].'</div>';
-                                            }
-                                            echo '</div>';
-                                        }
-                                        // Row of the avrage for each evaluation
-                                        echo '
-                                            <div class = "row">
-                                                <div class = "cell">'.$row['UTORid'].'</div>
-                                                <div class = "cell">'.$row['q1'].'</div>
-                                                <div class = "cell">'.$row['a1'].'</div>
-                                                <div class = "cell">'.$row['midterm'].'</div>
-                                                <div class = "cell">'.$row['q2'].'</div>
-                                                <div class = "cell">'.$row['a2'].'</div>
-                                                <div class = "cell">'.$row['q3'].'</div>
-                                                <div class = "cell">'.$row['a3'].'</div>
-                                                <div class = "cell">'.$row['practicals'].'</div>
-                                                <div class = "cell">'.$row['final'].'</div>
-                                            </div>';
-                                // Free result set
-                                mysqli_free_result($result);
-                                $db->close();
-                            }
-                            }
-                            ?>
-                        </div>
-                       </div>
-                    </div>
+                    <!-- Announcements Submission Form -->
                     <?php
-                    if ($_SESSION['accountType'] == 'S') {
+                    if ($_SESSION["accountType"] == 'I') {
                         echo '
-                    <!-- Display Remark Submission Form -->
-                    <div id = "window" class = "shadow inContentBox">
-                        <div id = "windowHeader">
-                            <div id = "windowBtns">
-                                <div class = "windowRd circle"></div>
-                                <div class = "windowYl circle"></div>
-                                <div class = "windowGn circle"></div>
-                            </div>
-                            <div id = "windowTitle">Remark Request Page</div>
-                        </div>
-                        <div id = "windowContent" class="flex_wrapper">
-                            <form id ="loginForm" action="php/remarkSubmit.php" method = "POST">
-                                <p id = "loginErrorMsg">';
-                                    //<?php
-                                        if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
-                                            echo  $_SESSION['error'];
-                                        }
-                                    //?
-                                    echo '
-                                </p>
-
-                                <label for="evaluatoin">Select Evaluatoin</label><br>
-                                <select placeholder = "evaluation" name="evaluation">
-                                ';
-                                include("php/config.php");
-                                $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
-                                $columnNames = mysqli_fetch_row($resultOfColumnNames);
-                                $columnNames = mysqli_fetch_row($resultOfColumnNames);
-                                while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
-                                    echo "<option value='".$columnNames[0]."'>".$columnNames[0]."</option>";
-                                }
-
-                                echo '
-                               </select><br><br>
-
-                                <label for="ta">Select T.A. to Remark</label><br>
-                                <select placeholder = "John Doe" name="ta">';
-                                    $sql = "SELECT * FROM TA";
-                                    $result = mysqli_query($db, $sql);
-                                    if (mysqli_num_rows($result) > 0) {
-                                        while($row = mysqli_fetch_assoc($result)){
-                                            echo "<option value = ".$row["UTORid"].">".$row["First"]." "
-                                                    .$row["Last"]."</option>";
-                                        }
-                                    }
-                                    // Free result set
-                                    mysqli_free_result($result);
-                                    $db->close();
-                                    echo '
-                                </select><br><br>
-
-                                <label for="remarkReason">Reason For Remark:</label><br>
-                                <textarea placeholder = "Comments..." name="remarkReason"></textarea>
-                                <br><br>
-                                <input id="submitBtn" type="submit" value="Request">
-                            </form>
-                        </div>
-                    </div>';
-                    } else if ($_SESSION["accountType"] == 'I') {
-                        echo '
-                        <!-- Alter Evaluations Form -->
                         <div id = "window" class = "shadow inContentBox">
                             <div id = "windowHeader">
                                 <div id = "windowBtns">
@@ -353,45 +215,16 @@
                                     <div class = "windowYl circle"></div>
                                     <div class = "windowGn circle"></div>
                                 </div>
-                                <div id = "windowTitle">Alter Course Evaluations Page</div>
+                                <div id = "windowTitle">Enter Announcements Page</div>
                             </div>
                             <div id = "windowContent" class="flex_wrapper">
                                 <form id ="loginForm" action="php/alterEvalSubmit.php" method = "POST">
-                                    <p id = "loginErrorMsg">';
-                                        //<?php
-                                            if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
-                                                echo  $_SESSION['error'];
-                                            }
-                                        //?
-                                        echo '
-                                    </p>
-                                    <label>Selecte The Action You Wish To Preform</label><br>
-                                    <label for = "isDeletingEval">Remove Evaluation</label>
-                                    <input type = "radio" name = "action" value = "delete"><br>
-                                    <label for = "isAddingEval">Add Evaluation</label>
-                                    <input type = "radio" name = "action" value = "add"><br><br>
-
-                                    <label for="evaluatoin">Select Evaluatoin</label><br>
-                                    <select placeholder = "evaluation" name="evaluation">
-                                    ';
-                                    include("php/config.php");
-                                    $resultOfColumnNames = mysqli_query($db, $sqlForEvaluationNames);
-                                    $columnNames = mysqli_fetch_row($resultOfColumnNames);
-                                    $columnNames = mysqli_fetch_row($resultOfColumnNames);
-                                    while ($columnNames = mysqli_fetch_row($resultOfColumnNames)) {
-                                        echo "<option value='".$columnNames[0]."'>".$columnNames[0]."</option>";
-                                    }
-                                    // Free result set
-                                    mysqli_free_result($columnNames);
-                                    $db->close();
-
-                                    echo '
-                                    </select><br><br>
-
-                                    <label for="newEvalName">Name Of New Evaluation:</label><br>
-                                    <input type = "text" placeholder = "Evaluation N" name="newEvalName">
                                     <br><br>
-                                    <input id="submitBtn" type="submit" value="Alter">
+
+                                    <label for="newTitleName">Give title for new Announcement:</label><br>
+                                    <input type = "text" placeholder = "Title here" name="newTitleName">
+                                    <br><br>
+                                    <input id="submitBtn" type="submit" value="Submit">
                                 </form>
                             </div>
                         </div>';
