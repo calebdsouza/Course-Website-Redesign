@@ -24,7 +24,7 @@
         $table = "Login";
         $sql = "INSERT INTO ".$table.
                 " (UTORid, password, Type) VALUES (".
-                "'".$utorid."', '".$password"', '".$accountType"')";
+                "'".$utorid."', '".$password."', '".$accountType."')";
         // Insert and check if given POST information was added to the db
         if ($db->query($sql) === TRUE) {
             $msg = "Remark was successfully submitted";
@@ -36,7 +36,7 @@
             $table = "Student";
             $sql = "INSERT INTO ".$table.
                     " (UTORid, FIRST, LAST) VALUES (
-                    '".$utorid."', '".$first"', '".$last"')";
+                    '".$utorid."', '".$first."', '".$last."')";
             // Insert and check if given POST information was added to the db
             if ($db->query($sql) === TRUE) {
                 $msg = "Student was successfully added";
@@ -47,7 +47,7 @@
             $table = "Instructors";
             $sql = "INSERT INTO ".$table.
                     " (UTORid, First, Last, Email) VALUES (
-                    '".$utorid."', '".$first"', '".$last"', '".$email"')";
+                    '".$utorid."', '".$first."', '".$last."', '".$email."')";
             // Insert and check if given POST information was added to the db
             if ($db->query($sql) === TRUE) {
                 $msg = "Instructor was successfully added";
