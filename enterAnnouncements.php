@@ -219,9 +219,15 @@
                             </div>
                             <div id = "windowContent" class="flex_wrapper">
                                 <form id ="loginForm" action="php/announcementSubmit.php" method = "POST">
+                                    <p id = "loginErrorMsg">';
+                                    if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+                                        echo  $_SESSION['error'];
+                                    }
+                                    echo '
+                                    </p>
                                     <label for="newTitleName">Give title for new Announcement:</label><br>
                                     <input type = "text" placeholder = "Title here" name="new_title">
-                                    <br><br>
+                                    <br><br><br>
 
                                     <label for="newContent">Place content here:</label><br>
                                     <textarea name = "announcement_content"></textarea><br>

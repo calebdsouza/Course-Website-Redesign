@@ -4,7 +4,7 @@
     session_start();
 
     // Check if the user entered all the information required for remark
-    if(($_SERVER["REQUEST_METHOD"] == "POST") && isset($_POST["title"])
+    if(($_SERVER["REQUEST_METHOD"] == "POST") && isset($_POST["new_title"])
         && isset($_POST["announcement_content"])) {
 
         // Get infomation that was POSTed
