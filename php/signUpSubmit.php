@@ -72,7 +72,7 @@
     }
 
     $_SESSION['error'] = $msg;
-    header("Location: ../index.php");
+    header("Location: ../login.php");
 
     // Free result set
     mysqli_free_result($result);
